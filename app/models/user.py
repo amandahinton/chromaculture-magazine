@@ -9,7 +9,12 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    favorite_color = db.Column(db.String, nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
+    article_details = db.relationship("Article", back_populates="user_details", cascade="all, delete")
+    comment_details = db.relationship("Comment", back_populates="user_details", cascade="all, delete")
+    bookmark_details = db.relationship("Bookmark", back_populates="user_details", cascade="all, delete")
+    note_details = db.relationship("Note", back_populates="user_details", cascade="all, delete")
 
     @property
     def password(self):
