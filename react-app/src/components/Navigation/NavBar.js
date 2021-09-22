@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from '../Users/LogoutButton';
 import LoginFormModal from '../Users/LoginFormModal';
-import SignUpFormModal from '../Users/SignUpFormModal';
+import RegisterFormModal from '../Users/RegisterFormModal';
 import NavLogo from '../../images/chromaculture-02.png'
 import './nav.css';
 
@@ -70,7 +70,7 @@ const NavBar = () => {
                         <LoginFormModal />
                     </div>
                     <div>
-                        <SignUpFormModal />
+                        <RegisterFormModal />
                     </div>
                 </div>
             </nav>

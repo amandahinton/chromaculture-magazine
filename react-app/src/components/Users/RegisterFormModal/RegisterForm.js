@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp, login } from '../../../store/session';
+import { register, login } from '../../../store/session';
 // import { fetchUsers } from '../../../store/users';
 
-const SignUpForm = () => {
+const RegisterForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -22,19 +22,19 @@ const SignUpForm = () => {
     dispatch(login("demo@aa.io", "password"));
   };
 
-  // const onSignUp = async (e) => {
+  // const onRegister = async (e) => {
   //   e.preventDefault();
-  //   const data = await dispatch(signUp(username, email, password, repeatPassword));
+  //   const data = await dispatch(Register(username, email, password, repeatPassword));
   //   dispatch(fetchUsers())
   //   if (data) {
   //     setErrors(data)
   //   }
   // };
 
-  const onSignUp = async (e) => {
+  const onRegister = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(register(username, email, password));
       if (data) {
         setErrors(data)
       }
@@ -63,7 +63,7 @@ const SignUpForm = () => {
 
   return (
     <div className="modal-wrapper-div">
-      <form className="form-div" onSubmit={onSignUp}>
+      <form className="form-div" onSubmit={onRegister}>
         <div className='form-errors'>
           {errors.map((error, ind) => (<div key={ind}>{error}</div>))}
         </div>
@@ -100,10 +100,10 @@ const SignUpForm = () => {
           value={repeatPassword}
           required={true}
         ></input>
-        <button className="primary-button form-submit" type='submit'>Sign Up</button>
+        <button className="primary-button form-submit" type='submit'>Register</button>
       </form>
       <div className="demo-user-div">
-        <p className="demo-user-prompt">Wanna take a look around first?</p>
+        <p className="demo-user-prompt">Log in as a guest user to see sample bookmarks</p>
         <button className="secondary-button" onClick={demoLogin}>
           Try Demo
         </button>
@@ -112,4 +112,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default RegisterForm;

@@ -62,7 +62,7 @@ const LoginForm = () => {
         <button className="primary-button form-submit"type='submit'>Login</button>
       </form>
       <div className="demo-user-div">
-        <p className="demo-user-prompt">Wanna take a look around first?</p>
+        <p className="demo-user-prompt">Log in as a guest user to see sample bookmarks</p>
         <button className="secondary-button" onClick={demoLogin}>
           Try Demo
         </button>
