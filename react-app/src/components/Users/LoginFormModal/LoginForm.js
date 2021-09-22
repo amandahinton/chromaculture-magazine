@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login } from '../../store/session';
+import { login } from '../../../store/session';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -9,6 +9,11 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+  const demoLogin = (e) => {
+    e.preventDefault();
+    dispatch(login("demo@aa.io", "password"));
+  };
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -31,34 +36,38 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
+    <div className="modal-wrapper-div">
+      <form className="form-div" onSubmit={onLogin}>
+        <div className='form-errors'>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
         <input
+          className='form-input'
           name='email'
           type='text'
-          placeholder='Email'
+          placeholder='email address'
           value={email}
           onChange={updateEmail}
         />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
         <input
+          className='form-input'
           name='password'
+          placeholder='password'
           type='password'
-          placeholder='Password'
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <button className="primary-button form-submit"type='submit'>Login</button>
+      </form>
+      <div className="demo-user-div">
+        <p className="demo-user-prompt">Wanna take a look around first?</p>
+        <button className="secondary-button" onClick={demoLogin}>
+          Try Demo
+        </button>
       </div>
-    </form>
+    </div>
   );
 };
 

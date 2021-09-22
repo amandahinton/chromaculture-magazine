@@ -1,1 +1,38 @@
-/* TODO Add site wide styles */
+/* BRAND */
+
+:root {
+    --pink: #f20091;
+    --coral: #ff4d4d;
+    --yellow: #edff00;
+    --green: #008c00;
+    --blue: #143cc8;
+}
+
+* {
+    font-family: 'Baskervville', serif;
+}
+
+/*
+    font-family: 'Baskervville', serif;
+    font-weight: 400;       regular - body copy
+    font-weight: 400i;      italics - quotes
+
+    font-family: 'Reem Kufi', sans-serif;
+    font-weight: 200;     regular - use sparingly
+    font-weight: 500;     medium - titles
+    font-weight: 600;     bold - for emphasis
+    font-weight: 700;     black - use sparingly
+*/
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+
+a {
+    color: var(--pink);
+    text-decoration: none;
+}
