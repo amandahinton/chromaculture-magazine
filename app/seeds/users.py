@@ -2,13 +2,29 @@ from app.models import db, User
 
 def seed_users():
     admin = User(
-        username='Chromaculture_Team', email='chromaculture@gmail.com', password='password')
+        username='Chromaculture_Team',
+        email='chromaculture@gmail.com',
+        password='password',
+        favorite_color='obsessed with every single one of them'
+    )
     guest = User(
-        username='GambogeGuest', email='demo@aa.io', password='password', favorite_color='neon yellow')
+        username='GambogeGuest',
+        email='demo@aa.io',
+        password='password',
+        favorite_color='neon yellow'
+    )
     magenta = User(
-        username='MagentaMax', email='magenta@aa.io', password='password', favorite_color='bubblegum pink')
+        username='MagentaMax',
+        email='magenta@aa.io',
+        password='password',
+        favorite_color='bubblegum pink'
+    )
     cerulean = User(
-        username='CeruleanSarah', email='cerulean@aa.io', password='password', favorite_color='the blues of the Caribbean Sea')
+        username='CeruleanSara',
+        email='cerulean@aa.io',
+        password='password',
+        favorite_color='the blues of the Caribbean Sea'
+    )
 
     db.session.add(admin)
     db.session.add(guest)

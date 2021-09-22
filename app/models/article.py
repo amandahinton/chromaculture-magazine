@@ -12,6 +12,8 @@ class Article(db.Model):
     quote = db.Column(db.Text, nullable=False)
     image_url = db.Column(db.String, nullable=False)
     link_url = db.Column(db.String, nullable=False)
+    promo_square_url = db.Column(db.String)
+    promo_banner_url = db.Column(db.String)
     user_details = db.relationship("User", back_populates="article_details")
     comment_details = db.relationship("Comment", back_populates="article_details", cascade="all, delete")
     bookmark_details = db.relationship("Bookmark", back_populates="article_details", cascade="all, delete")
@@ -28,4 +30,6 @@ class Article(db.Model):
             'quote': self.quote,
             'image_url': self.image_url,
             'link_url': self.link_url,
+            'promo_square_url': self.promo_square_url,
+            'promo_banner_url': self.promo_banner_url,
         }
