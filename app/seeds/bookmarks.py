@@ -74,6 +74,6 @@ def seed_bookmarks():
 # TRUNCATE removes all data from table
 # RESET IDENTITY resets auto-incrementing primary key
 # CASCADE deletes any dependent entities
-def undo_notes():
+def undo_bookmarks():
     db.session.execute('TRUNCATE bookmarks RESTART IDENTITY CASCADE;')
     db.session.commit()

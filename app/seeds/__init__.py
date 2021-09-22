@@ -1,20 +1,28 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
+from .articles import seed_articles, undo_articles
+from .comments import seed_comments, undo_comments
+from .bookmarks import seed_bookmarks, undo_bookmarks
+from .notes import seed_notes, undo_notes
 
-# Creates a seed group to hold our commands
-# So we can type `flask seed --help`
+# `flask seed --help`
 seed_commands = AppGroup('seed')
 
-
-# Creates the `flask seed all` command
+# `flask seed all`
 @seed_commands.command('all')
 def seed():
     seed_users()
-    # Add other seed functions here
+    seed_articles()
+    seed_comments()
+    seed_bookmarks()
+    seed_notes()
 
 
-# Creates the `flask seed undo` command
+# `flask seed undo`
 @seed_commands.command('undo')
 def undo():
     undo_users()
-    # Add other undo functions here
+    undo_articles()
+    undo_comments()
+    undo_bookmarks()
+    undo_notes()

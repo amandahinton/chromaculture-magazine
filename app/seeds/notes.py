@@ -21,7 +21,7 @@ def seed_notes():
         user_id=2,
         content="There's a link at the bottom for a follow-up article with more pigments"
     )
-    n2 = Note(
+    n5 = Note(
         article_id=7,
         user_id=2,
         content="Reddy-greeny? I'm not sure how this works and doesn't look brown. I wonder if I could see these or if it would be like those stupid Magic Eyes where I could never find the sailboat?!"
