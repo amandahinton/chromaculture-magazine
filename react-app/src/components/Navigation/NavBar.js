@@ -26,19 +26,19 @@ const NavBar = () => {
                     <div className="navbar-link">
                         <NavLink
                             className="navbar-link-text"
-                            exact to='/discover'
+                            to={`/users/${user.id}`}
                             activeClassName='active'
                             activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
-                            Discover
+                            Bookmarks
                         </NavLink>
                     </div>
                     <div className="navbar-link">
                         <NavLink
                             className="navbar-link-text"
-                            to={`/users/${user.id}`}
+                            exact to='/discover'
                             activeClassName='active'
                             activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
-                            Bookmarks
+                            Discover
                         </NavLink>
                     </div>
                     <LogoutButton />
@@ -62,7 +62,7 @@ const NavBar = () => {
                             className="navbar-link-text"
                             exact to='/discover'
                             activeClassName='active'
-                            activeStyle={{ borderBottom: "2px solid white" }}>
+                            activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
                             Discover
                         </NavLink>
                     </div>

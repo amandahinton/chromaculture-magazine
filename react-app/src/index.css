@@ -12,13 +12,17 @@
     font-family: 'Baskervville', serif;
 }
 
+p, li {
+    font-size: 18px;
+}
+
 /*
     font-family: 'Baskervville', serif;
     font-weight: 400;       regular - body copy
     font-weight: 400i;      italics - quotes
 
     font-family: 'Reem Kufi', sans-serif;
-    font-weight: 200;     regular - use sparingly
+    font-weight: 400;     regular - use sparingly
     font-weight: 500;     medium - titles
     font-weight: 600;     bold - for emphasis
     font-weight: 700;     black - use sparingly
@@ -35,4 +39,36 @@
 a {
     color: var(--pink);
     text-decoration: none;
+}
+
+
+/* BUTTONS */
+
+
+.primary-button, .secondary-button {
+    font-family: 'Reem Kufi', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+.primary-button {
+    background-color: var(--yellow);
+    border: 2px solid white;
+    color: black;
+    font-weight: 700;
+}
+
+.secondary-button {
+    background-color: black;
+    color: var(--yellow);
+    border: 2px solid white;
+    font-weight: 600;
+}
+
+.primary-button:hover, .secondary-button:hover {
+    background-color: var(--pink);
 }

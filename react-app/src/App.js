@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import ProtectedRoute from './components/Users/ProtectedRoute';
 import LoginForm from './components/Users/LoginFormModal/LoginForm';
 import RegisterForm from './components/Users/RegisterFormModal/RegisterForm';
 import NavBar from './components/Navigation/NavBar';
 import Footer from './components/Navigation/Footer';
-import ProtectedRoute from './components/Users/ProtectedRoute';
 import Bookmarks from './components/Users/Bookmarks';
 import { authenticate } from './store/session';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);

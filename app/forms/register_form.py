@@ -35,7 +35,7 @@ def password_confirm(form, field):
     password1 = form.data['password']
     password2 = form.data['confirm_password']
     if password1 != password2:
-        raise ValidationError('confirm password')
+        raise ValidationError('entries must match')
 
 class RegisterForm(FlaskForm):
     username = StringField(
