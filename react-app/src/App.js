@@ -41,6 +41,7 @@ function App() {
                     <Route path='/discover' exact={true}>
                         <h1>Discover Page</h1>
                         <h3>will be full of articles</h3>
+                        <h3>same as users/1/articles</h3>
                     </Route>
 
                     <ProtectedRoute path='/users/:userId' exact={true} >
