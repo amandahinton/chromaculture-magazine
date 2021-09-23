@@ -30,7 +30,7 @@ nav {
 }
 
 .navbar-link {
-    width: 150px;
+    width: 120px;
     display: flex;
     justify-content: flex-end;
     margin-right: 10px;
@@ -114,6 +114,7 @@ nav {
     .navbar-link {
         align-items: center;
         justify-content: center;
+        width: 150px;
     }
 
 }
