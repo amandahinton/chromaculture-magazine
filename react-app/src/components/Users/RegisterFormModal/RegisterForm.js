@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { register, login } from '../../../store/session';
 // import { fetchUsers } from '../../../store/users';
 
@@ -12,15 +12,14 @@ const RegisterForm = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const user = useSelector(state => state.session.user);
-    const dispatch = useDispatch();
 
-    // username='GambogeGuest',
-    // email='demo@aa.io',
-    // password='password',
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const demoLogin = (e) => {
         e.preventDefault();
         dispatch(login("demo@aa.io", "password"));
+        history.push("/users/2");
     };
 
     // const onRegister = async (e) => {
@@ -36,6 +35,7 @@ const RegisterForm = () => {
         e.preventDefault();
         const data = await dispatch(register(username, email, favoriteColor, password, confirmPassword));
         if (data) { setErrors(data) }
+        history.push("/discover");
     };
 
     const updateUsername = (e) => { setUsername(e.target.value) };
