@@ -47,8 +47,13 @@ const RegisterForm = () => {
     if (user) { return <Redirect to={`/users/${user.id}`} /> };
 
     return (
-        <div className="modal-wrapper-div">
+        <div className="modal-wrapper-div register-wrapper">
             <form className="form-div" onSubmit={onRegister}>
+
+                <div className='form-errors'>
+                    {errors.map((error, ind) => (<div key={ind}>{error}</div>))}
+                </div>
+
                 <label className="formLabel">
                     username
                     <input
@@ -74,7 +79,7 @@ const RegisterForm = () => {
                 </label>
 
                 <label className="formLabel">
-                    favorite color
+                    color
                     <input
                         className='form-input'
                         type='text'
@@ -110,10 +115,6 @@ const RegisterForm = () => {
                     ></input>
                 </label>
 
-                <div className='form-errors'>
-                    {errors.map((error, ind) => (<div key={ind}>{error}</div>))}
-                </div>
-
                 <button className="primary-button form-submit" type="submit">
                     Register
                 </button>
@@ -123,7 +124,7 @@ const RegisterForm = () => {
                 <p className="demo-user-text">
                     Sign in as a guest to try all features
                 </p>
-                <button className="secondary-button demo-login" onClick={demoLogin}>
+                <button className="secondary-button demo-register" onClick={demoLogin}>
                     Demo
                 </button>
             </div>
