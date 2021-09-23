@@ -72,3 +72,73 @@ a {
 .primary-button:hover, .secondary-button:hover {
     background-color: var(--pink);
 }
+
+
+/* FORMS */
+
+.modal-wrapper-div {
+    min-width: 300px;
+    max-width: 300px;
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 20px;
+  }
+
+.login-wrapper {
+    background-image: url(./images/bookmark_login.png);
+}
+
+.register-wrapper {
+    background-image: url(./images/bookmark_register.png);
+}
+
+.demo-login, .demo-register {
+    margin-bottom: 80px;
+}
+
+
+.form-div {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-instructions {
+    color: white;
+}
+
+.form-errors {
+    margin: 5px 0 15px;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--yellow);
+    width: 250px;
+}
+
+.form-input {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    width: 250px;
+    margin: 10px 0;
+    padding: 5px 10px;
+}
+
+.form-submit{
+    /* margin: 15px; */
+}
+
+.demo-user-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo-user-text {
+    /* margin-block-start: 0; */
+    margin-block-end: 5px;
+}

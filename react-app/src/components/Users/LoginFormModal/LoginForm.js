@@ -31,8 +31,12 @@ const LoginForm = () => {
     if (user) { return <Redirect to={`/users/${user.id}`} /> };
 
     return (
-        <div className="modal-wrapper-div">
+        <div className="modal-wrapper-div login-wrapper">
             <form className="form-div" onSubmit={onLogin}>
+
+                <div className='form-errors'>
+                    {errors.map((error, ind) => (<div key={ind}>{error}</div>))}
+                </div>
 
                 <label className="formLabel">
                     email
@@ -57,10 +61,6 @@ const LoginForm = () => {
                         onChange={updatePassword}
                     />
                 </label>
-
-                <div className='form-errors'>
-                    {errors.map((error, ind) => (<div key={ind}>{error}</div>))}
-                </div>
 
                 <button className="primary-button form-submit" type="submit">
                     Log In
