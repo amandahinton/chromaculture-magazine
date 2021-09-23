@@ -37,6 +37,11 @@ function App() {
                         <RegisterForm />
                     </Route>
 
+                    <Route path='/discover' exact={true}>
+                        <h1>Discover Page</h1>
+                        <h3>will be full of articles</h3>
+                    </Route>
+
                     <ProtectedRoute path='/users/:userId' exact={true} >
                         <Bookmarks />
                     </ProtectedRoute>

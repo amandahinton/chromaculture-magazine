@@ -52,7 +52,7 @@ export const login = (email, password) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ['An error occurred. Please try again.']
+    return ['error: please try again']
   }
 
 }
@@ -70,7 +70,7 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const register = (username, email, password) => async (dispatch) => {
+export const register = (username, email, favoriteColor, password, confirmPassword) => async (dispatch) => {
   const response = await fetch('/api/auth/register', {
     method: 'POST',
     headers: {
@@ -79,7 +79,9 @@ export const register = (username, email, password) => async (dispatch) => {
     body: JSON.stringify({
       username,
       email,
+      favorite_color: favoriteColor,
       password,
+      confirm_password: confirmPassword
     }),
   });
 
@@ -93,7 +95,7 @@ export const register = (username, email, password) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ['An error occurred. Please try again.']
+    return ['error: please try again']
   }
 }
 

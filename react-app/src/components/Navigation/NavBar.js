@@ -26,7 +26,7 @@ const NavBar = () => {
                     <div className="navbar-link">
                         <NavLink
                             className="navbar-link-text"
-                            exact to='/'
+                            exact to='/discover'
                             activeClassName='active'
                             activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
                             Discover
@@ -60,7 +60,7 @@ const NavBar = () => {
                     <div className="navbar-link">
                         <NavLink
                             className="navbar-link-text"
-                            exact to='/'
+                            exact to='/discover'
                             activeClassName='active'
                             activeStyle={{ borderBottom: "2px solid white" }}>
                             Discover
