@@ -1,0 +1,39 @@
+/* ArticleAll Component */
+
+.article-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+/* ArticleCard Component */
+
+.article-card {
+    margin: 10px;
+    width: 300px;
+    height: 700px;
+    border: 2px solid var(--pink);
+}
+
+.article-card-image {
+    width: 300px;
+    height: 200px;
+}
+
+.article-card-title {
+    padding: 20px;
+}
+
+.article-card-description {
+    padding: 20px;
+}
+
+/* ArticleModal Component */
+
+
+
+/* ArticleDetail Component */

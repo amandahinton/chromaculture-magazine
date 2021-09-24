@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getArticles } from '../../store/articles';
+import { getAllArticles } from '../../../store/articles';
 // import CommentsList from '../Comments/CommentsList.js'
 // import CommentForm from "../Comments/CommentForm";
 // import { addBookmark, getBookmarks, removeBookmark } from "../../store/bookmarks";
-import "./articles.css"
+import "../articles.css"
 
 const ArticleDetail = () => {
 
@@ -16,7 +16,7 @@ const ArticleDetail = () => {
     const article = articles[articleId];
 
     useEffect(() => {
-        dispatch(getArticles())
+        dispatch(getAllArticles())
     }, [dispatch])
 
     if (article) {
@@ -41,11 +41,6 @@ const ArticleDetail = () => {
                     <CommentForm /> */}
                 </div>
             </div>
-
-
-
-
-
         );
     } else {
         return null

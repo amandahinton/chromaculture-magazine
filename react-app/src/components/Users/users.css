@@ -1,0 +1,47 @@
+/*
+#modal {
+  position: fixed;
+  top: 107px;
+  right: 456px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (max-width: 1149px) {
+  #modal {
+    top: 158px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media all and (max-width: 1149px) {
+  #modal {
+    top: 158px;
+  }
+}
+
+@media all and (max-width: 474px) {
+  #modal {
+    top: 208px;
+  }
+}
+
+#modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+#modal-content {
+  position: absolute;
+} */

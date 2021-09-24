@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleDetailModal from './ArticleDetailModal.js';
+import ArticleDetailModal from './ArticleDetailModal/index.js';
 import "./articles.css"
 
 const ArticleDetail = ({ article }) => {

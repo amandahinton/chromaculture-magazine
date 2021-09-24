@@ -19,10 +19,10 @@ class Article(db.Model):
     bookmark_details = db.relationship("Bookmark", back_populates="article_details", cascade="all, delete")
     note_details = db.relationship("Note", back_populates="article_details", cascade="all, delete")
 
-    def to_dict(self):
+    def to_dict(self, list_obj):
         return {
             'id': self.id,
-            'user_id': self.username,
+            'user_id': self.user_id,
             'title': self.title,
             'author': self.author,
             'source': self.source,
@@ -32,4 +32,5 @@ class Article(db.Model):
             'link_url': self.link_url,
             'promo_square_url': self.promo_square_url,
             'promo_banner_url': self.promo_banner_url,
+            'saver_list': list_obj
         }

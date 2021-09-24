@@ -6,7 +6,9 @@ import LoginForm from './components/Users/LoginFormModal/LoginForm';
 import RegisterForm from './components/Users/RegisterFormModal/RegisterForm';
 import NavBar from './components/Navigation/NavBar';
 import Footer from './components/Navigation/Footer';
-import Bookmarks from './components/Users/Bookmarks';
+import Splash from './components/Splash/Splash.js';
+import Profile from './components/Profile/Profile';
+import Discover from './components/Discover/Discover.js';
 import { authenticate } from './store/session';
 
 
@@ -39,18 +41,20 @@ function App() {
                     </Route>
 
                     <Route path='/discover' exact={true}>
-                        <h1>Discover Page</h1>
-                        <h3>will be full of articles</h3>
-                        <h3>same as users/1/articles</h3>
+                        <Discover />
                     </Route>
 
                     <ProtectedRoute path='/users/:userId' exact={true} >
-                        <Bookmarks />
+                        <Profile />
                     </ProtectedRoute>
 
+                    {/* <ProtectedRoute path='/users/:userId/articles' exact={true} >
+                        <h1>User Articles</h1>
+                        <h3>articles that a user has created</h3>
+                    </ProtectedRoute> */}
+
                     <Route path='/' exact={true} >
-                        <h1>Welcome to Chromaculture!</h1>
-                        <h3>the digital magazine for color lovers</h3>
+                        <Splash />
                     </Route>
                 </Switch>
             </div>

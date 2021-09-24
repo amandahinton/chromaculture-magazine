@@ -17,6 +17,19 @@ def get_all_articles():
     for article in articles:
         saves = Bookmark.query.filter(Bookmark.article_id == article.id).all()
         saver_list = [save.user_id for save in saves]
-        new_save=article.to_dict(saver_list)
-        saved_articles.append(new_save)
+        bookmark = article.to_dict(saver_list)
+        saved_articles.append(bookmark)
     return {'articles': saved_articles}
+
+
+"""
+GET
+/articles/:articleId
+single article by id
+"""
+@article_routes.route('/<int:articleId>')
+def get_one_article(articleId):
+    article = Article.query.get(articleId)
+    saves = Bookmark.query.filter(Bookmark.article_id == article.id).all()
+    saver_list = [save.user_id for save in saves]
+    return article.to_dict(saver_list)

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User, Article
+from app.models import User, Article, Bookmark
 
 user_routes = Blueprint('users', __name__)
 
@@ -20,10 +20,37 @@ def user(id):
 
 """
 GET
-/users/1/articles
-all articles created by admin account whose user.id is 1
+/users/userId/articles
+all articles created by the user whose user.id is userId from url params
+along with a list of who has saved those articles
+"""
+@user_routes.route('/<int:userId>/articles')
+@login_required
+def get_user_articles(userId):
+    saved_articles = []
+    articles = Article.query.filter(Article.user_id == userId).order_by(Article.id.desc()).all()
+    for article in articles:
+        saves = Bookmark.query.filter(Bookmark.article_id == article.id).all()
+        saver_list = [save.user_id for save in saves]
+        new_save=article.to_dict(saver_list)
+        saved_articles.append(new_save)
+    return {'articles': saved_articles}
+
+
+
+"""
+GET
+/articles
+all articles created by user 1, which is the editorial team
+along with a list of who has saved those articles
 """
 @user_routes.route("/1/articles")
 def get_our_articles():
-    articles = Article.query.filter(Article.user_id == 1).order_by(Article.id.desc()).all()
-    return {'articles': articles}
+    saved_articles = []
+    articles = Article.query.order_by(Article.id.desc()).all()
+    for article in articles:
+        saves = Bookmark.query.filter(Bookmark.article_id == article.id).all()
+        saver_list = [save.user_id for save in saves]
+        bookmark = article.to_dict(saver_list)
+        saved_articles.append(bookmark)
+    return {'articles': saved_articles}
