@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models import User, Article, Bookmark
+from app.models.db import db
 
 user_routes = Blueprint('users', __name__)
 
@@ -37,3 +38,23 @@ def get_user_articles(userId):
     return {'articles': saved_articles}
 
 
+"""
+GET
+/users/userId/bookmarks/
+all bookmarks that the user at userId have bookmarked
+"""
+@user_routes.route('/<int:userId>/bookmarks')
+@login_required
+def get_user_bookmarks(userId):
+    articles_bookmarked = []
+    bookmarks = db.session.query(Bookmark).join(Article) \
+        .filter(Bookmark.article_id == Article.id) \
+        .filter(Bookmark.user_id == userId).all()
+    for bookmark in bookmarks:
+        saves = Bookmark.query.filter(Bookmark.article_id == bookmark.article_id).all()
+        saver_list = [save.user_id for save in saves]
+        articles_bookmarked.append(bookmark.to_dict(saver_list))
+
+        print("YOOOOOOOO", bookmark.article_details)
+
+    return {'bookmarks': articles_bookmarked}

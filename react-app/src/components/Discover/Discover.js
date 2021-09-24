@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ArticleAll from "../Articles/ArticleAll.js";
 import { getOurArticles } from '../../store/articles';
+import { getUserBookmarks } from '../../store/bookmarks';
 import "./discover.css"
 
 function Discover() {
@@ -18,6 +19,10 @@ function Discover() {
 
     useEffect(()=>{
         dispatch(getOurArticles())
+    }, [dispatch])
+
+    useEffect(()=>{
+        dispatch(getUserBookmarks(sessionUser.id))
     }, [dispatch])
 
     const articles = useSelector(state => Object.values(state.articles))
