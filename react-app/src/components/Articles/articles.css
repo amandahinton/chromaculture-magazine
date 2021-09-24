@@ -1,0 +1,168 @@
+/* ArticleAll Component */
+
+.article-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+/* ArticleCard Component */
+
+.article-card {
+    margin: 10px;
+    width: 300px;
+    height: 700px;
+    border: 2px solid var(--pink);
+    background-color: white;
+}
+
+.article-card-image {
+    width: 300px;
+    height: 200px;
+}
+
+.article-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.article-card-title {
+    padding: 20px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.article-card-description {
+    padding: 20px;
+}
+
+/* ArticleModal Component */
+
+.article-detail-button {
+    font-family: 'Reem Kufi', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: var(--yellow);
+    border: 2px solid white;
+    color: black;
+}
+
+/* ArticleDetail Component */
+
+.article-wrapper {
+    background-color: var(--coral);
+    max-width: 600px;
+    padding: 10px;
+    max-height: 1000px;
+    overflow: auto;
+}
+
+.close-button-div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 520px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.fa-window-close {
+    font-size: 40px;
+}
+
+.article-detail-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+
+}
+
+.article-detail-author, .article-detail-source, .article-detail-savers {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.article-detail-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.article-detail-title {
+
+}
+
+.article-detail-author {
+
+}
+
+.article-detail-source {
+
+}
+
+.article-detail-description {
+
+}
+
+.article-detail-quote-div {
+
+}
+
+.fa-quote-left, .fa-quote-right {
+
+}
+
+.article-detail-quote {
+    font-style: italic;
+}
+
+.article-detail-external-link {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: var(--yellow);
+    border: 2px solid white;
+    color: black;
+    font-weight: 700;
+}
+
+.article-detail-comment-section {
+
+}
+
+
+/* RESPONSIVE */
+
+@media all and (max-width: 400px) {
+    .article-wrapper {
+        max-width: 320px;
+        max-height: 600px;
+        overflow: auto;
+    }
+
+    .close-button-div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 240px;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+}

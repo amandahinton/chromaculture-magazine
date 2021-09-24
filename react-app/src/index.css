@@ -16,11 +16,10 @@ p, li {
     font-size: 18px;
 }
 
-/*
+/*  FONTS INSTALLED
     font-family: 'Baskervville', serif;
     font-weight: 400;       regular - body copy
     font-weight: 400i;      italics - quotes
-
     font-family: 'Reem Kufi', sans-serif;
     font-weight: 400;     regular - use sparingly
     font-weight: 500;     medium - titles
@@ -28,28 +27,27 @@ p, li {
     font-weight: 700;     black - use sparingly
 */
 
-.page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px;
-}
-
-
 a {
     color: var(--pink);
     text-decoration: none;
 }
 
 
-/* BUTTONS */
+/* BODY */
 
+.page-container {
+    max-width: 1600px;
+    margin: auto;
+    padding: 0 100px;
+}
+
+
+/* BUTTONS */
 
 .primary-button, .secondary-button {
     font-family: 'Reem Kufi', sans-serif;
-    font-weight: 600;
     font-size: 16px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     padding: 5px 10px;
     margin: 10px;
@@ -73,10 +71,14 @@ a {
     background-color: var(--pink);
 }
 
+.primary-button:hover {
+    color: var(--yellow);
+}
+
 
 /* FORMS */
 
-.modal-wrapper-div {
+.login-wrapper, .register-wrapper {
     min-width: 300px;
     max-width: 300px;
     background-size:100% 100%;

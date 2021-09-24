@@ -9,9 +9,10 @@ class Bookmark(db.Model):
     user_details = db.relationship("User", back_populates="bookmark_details")
     article_details = db.relationship("Article", back_populates="bookmark_details")
 
-    def to_dict(self):
+    def to_dict(self, list_obj):
         return {
             'id': self.id,
-            'user_id': self.username,
+            'user_id': self.user_id,
             'article_id': self.article_id,
+            'article': self.article_details.to_dict(list_obj)
         }
