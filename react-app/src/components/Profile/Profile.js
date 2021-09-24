@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
+import { getUserBookmarks } from '../../store/bookmarks';
 
 function Profile() {
+
+    const dispatch = useDispatch()
 
     const [paramUser, setParamUser] = useState({});
     const { userId }  = useParams();
@@ -19,6 +21,10 @@ function Profile() {
             setParamUser(user);
         })();
     }, [userId]);
+
+    useEffect(()=>{
+        dispatch(getUserBookmarks(sessionUser.id))
+    }, [dispatch])
 
     if (!sessionUser) return null;
 

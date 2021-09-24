@@ -14,63 +14,66 @@ const NavBar = () => {
     if (user) {
         return (
             <nav>
-                <div className="left-nav-div">
-                    <NavLink exact to="/">
-                        <img
-                        className="navbar-logo"
-                        src={NavLogo}
-                        alt="Chromaculture logo" />
-                    </NavLink>
-                </div>
-                <div className="right-nav-div">
-                    <div className="navbar-link">
-                        <NavLink
-                            className="navbar-link-text"
-                            to={`/users/${user.id}`}
-                            activeClassName='active'
-                            activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
-                            Bookmarks
+                <div className="nav-container">
+                    <div className="left-nav-div">
+                        <NavLink exact to="/">
+                            <img
+                            className="navbar-logo"
+                            src={NavLogo}
+                            alt="Chromaculture logo" />
                         </NavLink>
                     </div>
-                    <div className="navbar-link">
-                        <NavLink
-                            className="navbar-link-text"
-                            exact to='/discover'
-                            activeClassName='active'
-                            activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
-                            Discover
-                        </NavLink>
+                    <div className="right-nav-div">
+                        <div className="navbar-link">
+                            <NavLink
+                                className="navbar-link-text"
+                                to={`/users/${user.id}`}
+                                activeClassName='active'
+                                activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
+                                Bookmarks
+                            </NavLink>
+                        </div>
+                        <div className="navbar-link">
+                            <NavLink
+                                className="navbar-link-text"
+                                exact to='/discover'
+                                activeClassName='active'
+                                activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
+                                Discover
+                            </NavLink>
+                        </div>
+                        <LogoutButton />
                     </div>
-                    <LogoutButton />
                 </div>
-
             </nav>
         );
     } else {
         return (
             <nav>
-                <div className="left-nav-div">
-                    <NavLink exact to="/">
-                        <img className="navbar-logo"
-                        src={NavLogo}
-                        alt="Chromaculture logo" />
-                    </NavLink>
-                </div>
-                <div className="right-nav-div">
-                    <div className="navbar-link">
-                        <NavLink
-                            className="navbar-link-text"
-                            exact to='/discover'
-                            activeClassName='active'
-                            activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
-                            Discover
+                <div className="nav-container">
+                    <div className="left-nav-div">
+                        <NavLink exact to="/">
+                            <img className="navbar-logo"
+                            src={NavLogo}
+                            alt="Chromaculture logo" />
                         </NavLink>
                     </div>
-                    <div>
-                        <LoginFormModal />
-                    </div>
-                    <div>
-                        <RegisterFormModal />
+                    <div className="right-nav-div">
+                        <div className="navbar-link">
+                            <NavLink
+                                className="navbar-link-text"
+                                exact to='/discover'
+                                activeClassName='active'
+                                activeStyle={{ borderBottom: "2px solid var(--pink)" }}>
+                                Discover
+                            </NavLink>
+                        </div>
+                        <div>
+                            <LoginFormModal />
+                        </div>
+                        <div>
+                            <RegisterFormModal />
+                        </div>
                     </div>
                 </div>
             </nav>

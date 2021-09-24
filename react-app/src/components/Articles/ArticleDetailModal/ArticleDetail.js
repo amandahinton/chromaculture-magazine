@@ -1,36 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Modal } from '../../../context/Modal';
 import { getAllArticles } from '../../../store/articles';
 // import CommentsList from '../Comments/CommentsList.js'
 // import CommentForm from "../Comments/CommentForm";
 // import { addBookmark, getBookmarks, removeBookmark } from "../../store/bookmarks";
 import "../articles.css"
 
-const ArticleDetail = () => {
+const ArticleDetail = ({articleId, setShowModal}) => {
 
     const dispatch = useDispatch()
 
-    const { articleId } = useParams();
     const articles = useSelector(state => state?.articles)
     const article = articles[articleId];
 
+    document.querySelector("body").style.overflow = 'hidden';
+    
     useEffect(() => {
         dispatch(getAllArticles())
     }, [dispatch])
 
     if (article) {
         return (
-            <div className="article-detail-container">
+            <div className="modal-wrapper-div article-wrapper">
                 <div className="article-detail-info">
-                    <img className="article-card-image" src={article.image_url} alt="article preview" />
-                    <h3 className="article-card-title">{article.title}</h3>
-                    <p className="article-card-author">{article.author}</p>
-                    <p className="article-card-source">{article.source}</p>
-                    <p className="article-card-description">{article.description}</p>
+                    <div className="close-button-div">
+                        <i onClick={() => setShowModal(false)} className="far fa-window-close"></i>
+                    </div>
+                    <img className="article-detail-image" src={article.image_url} alt="article preview" />
+                    <h3 className="article-detail-title">{article.title}</h3>
+                    <p className="article-detail-author">{article.author}</p>
+                    <p className="article-detail-source">{article.source}</p>
+                    <p className="article-detail-savers">{(article.saver_list).length} bookmarked</p>
+                    <p className="article-detail-description">{article.description}</p>
                     <div className="article-detail-quote-div">
                         <i className="fas fa-quote-left"></i>
-                        <p className="article-card-quote">{article.quote}</p>
+                        <p className="article-detail-quote">{article.quote}</p>
                         <i className="fas fa-quote-right"></i>
                     </div>
                     <a href={article.link_url} className="article-detail-external-link" target={"_blank"} rel={"noreferrer"}>go to article</a>
