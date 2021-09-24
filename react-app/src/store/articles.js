@@ -49,7 +49,7 @@ export const getUserArticles = (userId) => async dispatch => {
 }
 
 export const getOurArticles = () => async dispatch => {
-    const response = await fetch(`/api/users/1/articles`)
+    const response = await fetch(`/api/articles/featured`)
 
     if (response.ok) {
         const articles = await response.json().then(res => res = res.articles)
