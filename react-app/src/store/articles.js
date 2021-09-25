@@ -4,9 +4,6 @@ const VIEW_USER_ARTICLES = 'article/VIEW_USER_ARTICLES'
 const VIEW_OUR_ARTICLES = 'article/VIEW_OUR_ARTICLES'
 const VIEW_ONE_ARTICLE = 'articles/VIEW_ONE_ARTICLE'
 
-
-const VIEW_USER_BOOKMARKS = 'bookmarks/VIEW_USER_BOOKMARKS'
-
 // action creators
 
 const viewAllArticles = (articles) => ({
@@ -28,8 +25,6 @@ const viewOneArticle = (article) => ({
     type: VIEW_ONE_ARTICLE,
     article
 })
-
-
 
 
 // thunks

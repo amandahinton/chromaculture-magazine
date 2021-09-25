@@ -13,7 +13,10 @@ function ArticleDetailModal({articleId}) {
             read more
         </button>
         {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal onClose={() => {
+            setShowModal(false);
+            document.querySelector("body").style.overflow = 'visible';
+        }}>
             <ArticleDetail articleId={articleId} setShowModal={setShowModal} />
         </Modal>
       )}

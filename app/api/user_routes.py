@@ -55,6 +55,4 @@ def get_user_bookmarks(userId):
         saver_list = [save.user_id for save in saves]
         articles_bookmarked.append(bookmark.to_dict(saver_list))
 
-        print("YOOOOOOOO", bookmark.article_details)
-
     return {'bookmarks': articles_bookmarked}
