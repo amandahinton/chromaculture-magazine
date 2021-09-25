@@ -20,4 +20,6 @@
 
 #modal-content {
   position: absolute;
+  max-height: 100vh;
+  overflow-y: auto;
 }

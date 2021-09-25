@@ -1,7 +1,39 @@
-.discover-feature-div {
+.discover-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-inline-start: 0;
+}
+
+.discover-article-intro p {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    margin: 75px 100px 30px;
+    font-size: 24px;
+}
+
+.discover-article-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.discover-article-title {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@media all and (max-width: 899px) {
+    .discover-article-intro p {
+        font-size: 16px;
+    }
 }

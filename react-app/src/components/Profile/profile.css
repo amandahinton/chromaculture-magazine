@@ -1,0 +1,76 @@
+.profile-container {
+    background-image: url('../../images/profile_banner.jpg');
+    background-repeat: no-repeat;
+}
+
+.user-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-bio-div {
+    font-size: 18px;
+    height: 200px;
+    width: 100%;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-bio-text {
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 25px;
+    font-size: 22px;
+}
+
+.profile-bio-text div {
+    margin: 5px 20px;
+}
+
+.profile-bookmark-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-bookmarks-title {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+
+@media all and (max-width: 1249px) {
+    .profile-bio-text {
+        font-size: 16px;
+    }
+    .profile-bio-div {
+        height: 150px;
+    }
+}
+
+@media all and (max-width: 699px) {
+    .profile-bio-text {
+        font-size: 12px;
+    }
+    .profile-bio-div {
+        height: 100px;
+    }
+    .profile-bio-text div {
+        margin: 0 10px;
+    }
+}

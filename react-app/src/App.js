@@ -9,6 +9,7 @@ import Footer from './components/Navigation/Footer';
 import Splash from './components/Splash/Splash.js';
 import Profile from './components/Profile/Profile';
 import Discover from './components/Discover/Discover.js';
+import ArticlePage from './components/Articles/ArticlePage.js';
 import { authenticate } from './store/session';
 
 
@@ -29,8 +30,7 @@ function App() {
 
   return (
         <BrowserRouter>
-        <NavBar />
-            <div className="page-container">
+            <NavBar />
                 <Switch>
                     <Route path='/login' exact={true}>
                         <LoginForm />
@@ -41,12 +41,24 @@ function App() {
                     </Route>
 
                     <Route path='/discover' exact={true}>
-                        <Discover />
+                        <div className="page-container">
+                            <Discover />
+                        </div>
                     </Route>
 
                     <ProtectedRoute path='/users/:userId' exact={true} >
-                        <Profile />
+                        <div className="profile-container">
+                            <div className="page-container">
+                                <Profile />
+                            </div>
+                        </div>
                     </ProtectedRoute>
+
+                    <Route path='/articles/:articleId' exact={true} >
+                        <div className="page-container">
+                            <ArticlePage />
+                        </div>
+                    </Route>
 
                     {/* <ProtectedRoute path='/users/:userId/articles' exact={true} >
                         <h1>User Articles</h1>
@@ -57,7 +69,6 @@ function App() {
                         <Splash />
                     </Route>
                 </Switch>
-            </div>
             <Footer />
         </BrowserRouter>
     );
