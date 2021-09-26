@@ -10,7 +10,6 @@ import Splash from './components/Splash/Splash.js';
 import Profile from './components/Profile/Profile';
 import Discover from './components/Discover/Discover.js';
 import ArticlePage from './components/Articles/ArticlePage.js';
-import ArticleDetail from './components/Articles/ArticleDetailModal/ArticleDetail.js';
 import { authenticate } from './store/session';
 
 
