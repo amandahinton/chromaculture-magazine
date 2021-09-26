@@ -40,7 +40,7 @@ def get_user_articles(userId):
 
 """
 GET
-/users/userId/bookmarks/
+/users/userId/bookmarks
 all bookmarks that the user at userId have bookmarked
 """
 @user_routes.route('/<int:userId>/bookmarks')

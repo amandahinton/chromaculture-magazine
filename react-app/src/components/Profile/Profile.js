@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { getAllArticles } from '../../store/articles';
 import { getUserBookmarks } from '../../store/bookmarks';
 import ArticleAll from "../Articles/ArticleAll.js";
 import './profile.css'
@@ -26,6 +27,7 @@ function Profile() {
 
     useEffect(()=>{
         dispatch(getUserBookmarks(sessionUser.id))
+        // dispatch(getAllArticles())
     }, [dispatch, sessionUser.id])
 
     const bookmarks = useSelector(state => Object.values(state.bookmarks))

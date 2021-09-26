@@ -48,7 +48,7 @@ const ArticleDetail = ({articleId, setShowModal}) => {
                         <i className="fas fa-quote-right"></i>
                     </div>
 
-                    <a href={article.link_url} className="article-detail-external-link" target={"_blank"} rel={"noreferrer"}>go to article</a>
+                    <a href={article.link_url} className="article-detail-external-link" target={"_blank"} rel={"noreferrer"}>read full article</a>
                 </div>
 
                 <div className="article-detail-comment-section">
