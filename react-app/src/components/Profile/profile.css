@@ -12,6 +12,8 @@
 
 .profile-bio-div {
     font-size: 18px;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
     height: 200px;
     width: 100%;
     background-size: 100% 100%;
@@ -31,10 +33,15 @@
     color: white;
     padding: 25px;
     font-size: 22px;
+    box-sizing: border-box;
+    min-width: 300px;
+
 }
 
 .profile-bio-text div {
     margin: 5px 20px;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 .profile-bookmark-div {
@@ -58,10 +65,18 @@
     .profile-bio-text {
         font-size: 16px;
     }
+
     .profile-bio-div {
         height: 150px;
     }
+
+    .profile-container {
+        background-image: none;
+    }
 }
+
+
+
 
 @media all and (max-width: 699px) {
     .profile-bio-text {

@@ -24,11 +24,23 @@ def username_exists(form, field):
     if user:
         raise ValidationError('already in use')
 
-def password_length(form, field):
+def color_long(form, field):
+    # check if favorite color is too long
+    favorite_color = form.data['favorite_color']
+    if len(favorite_color) > 50:
+        raise ValidationError('too long (50 maximum)')
+
+def password_short(form, field):
     # check if password is too short
     password = form.data['password']
     if len(password) < 8:
         raise ValidationError('too short (8 minimum)')
+
+def password_long(form, field):
+    # check if password is too long
+    password = form.data['password']
+    if len(password) > 255:
+        raise ValidationError('too long (255 maximum)')
 
 def password_confirm(form, field):
     # check if passwords match
@@ -41,6 +53,6 @@ class RegisterForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired("required"), username_exists, username_length])
     email = StringField('email', validators=[DataRequired("required"), Email("invalid format"), user_exists])
-    favorite_color = StringField('favorite_color', validators=[DataRequired("required")])
-    password = StringField('password', validators=[DataRequired("required"), password_length, password_confirm])
+    favorite_color = StringField('favorite_color', validators=[DataRequired("required"), color_long])
+    password = StringField('password', validators=[DataRequired("required"), password_short, password_long, password_confirm])
     confirm_password = StringField('confirm_password', validators=[DataRequired("required")])

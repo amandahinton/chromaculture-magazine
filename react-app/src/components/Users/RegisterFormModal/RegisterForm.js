@@ -35,7 +35,7 @@ const RegisterForm = () => {
         e.preventDefault();
         const data = await dispatch(register(username, email, favoriteColor, password, confirmPassword));
         if (data) { setErrors(data) }
-        history.push("/discover");
+        if (!data) history.push("/discover");
     };
 
     const updateUsername = (e) => { setUsername(e.target.value) };
@@ -115,7 +115,9 @@ const RegisterForm = () => {
                     ></input>
                 </label>
 
-                <button className="primary-button form-submit" type="submit">
+                <button
+                    className="primary-button form-submit"
+                    type="submit">
                     Register
                 </button>
             </form>
