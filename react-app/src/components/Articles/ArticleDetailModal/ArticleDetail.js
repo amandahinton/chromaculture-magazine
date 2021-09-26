@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 // import { Modal } from '../../../context/Modal';
 import { getAllArticles } from '../../../store/articles';
+import { getUserBookmarks, postUserBookmark, deleteUserBookmark } from '../../../store/bookmarks';
 // import CommentsList from '../Comments/CommentsList.js'
 // import CommentForm from "../Comments/CommentForm";
 // import { addBookmark, getBookmarks, removeBookmark } from "../../store/bookmarks";
@@ -14,22 +15,56 @@ const ArticleDetail = ({articleId, setShowModal}) => {
     const articles = useSelector(state => state?.articles)
     const article = articles[articleId];
 
+    const user = useSelector(state => state?.session.user)
+
+    const allBookmarks = useSelector(state => Object.values(state?.bookmarks))
+    const currentBookmark = allBookmarks.filter(bookmark => +articleId === +bookmark.article_id && +user.id === +bookmark.user_id)[0]
+
     document.querySelector("body").style.overflow = 'hidden';
 
     useEffect(() => {
         dispatch(getAllArticles())
-    }, [dispatch])
+        dispatch(getUserBookmarks(user.id))
+    }, [dispatch, user.id])
 
     const closeOverlay = () => {
         setShowModal(false)
         document.querySelector("body").style.overflow = 'visible';
     }
 
+     // if bookmark icon is clicked (shows full after click)
+     const handleSave = async () => {
+        await dispatch(postUserBookmark({ "user_id": user.id, "article_id": articleId }))
+        await dispatch(getUserBookmarks(user.id))
+        await dispatch(getAllArticles())
+        return
+    }
+
+    // if bookmark icon is clicked again (shows empty after click)
+    const handleUnsave = async () => {
+        await dispatch(deleteUserBookmark(articleId, currentBookmark.id))
+        await dispatch(getUserBookmarks(user.id))
+        await dispatch(getAllArticles())
+        return
+    }
+
+    // select icon (full or empty bookmark) to show
+    let bookmarkIcon
+    if (article) {
+        if (!article.saver_list.includes(user.id)) {
+            bookmarkIcon = (<i onClick={handleSave} className="far fa-bookmark"></i>)
+        } else {
+            bookmarkIcon = (<i onClick={handleUnsave} className="fas fa-bookmark"></i>)
+        }
+    }
 
     if (article) {
         return (
             <div className="modal-wrapper-div article-wrapper">
                 <div className="article-detail-info">
+                    <div className="bookmark-div">
+                        {bookmarkIcon}
+                    </div>
 
                     <div className="close-button-div">
                         <i onClick={closeOverlay} className="far fa-window-close"></i>

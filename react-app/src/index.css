@@ -148,3 +148,9 @@ a {
     /* margin-block-start: 0; */
     margin-block-end: 5px;
 }
+
+@media all and (max-width: 399px) {
+    .page-container {
+        padding: 0 20px;
+    }
+}

@@ -14,20 +14,20 @@ const ArticlePage = () => {
     const articles = useSelector(state => state?.articles)
     const article = articles[articleId];
 
-    const userId = useSelector(state => state?.session.user.id)
+    const user = useSelector(state => state?.session.user)
 
     const allBookmarks = useSelector(state => Object.values(state?.bookmarks))
-    const currentBookmark = allBookmarks.filter(bookmark => +articleId === +bookmark.article_id && +userId === +bookmark.user_id)[0]
+    const currentBookmark = allBookmarks.filter(bookmark => +articleId === +bookmark.article_id && +user.id === +bookmark.user_id)[0]
 
     useEffect(() => {
         dispatch(getAllArticles())
-        dispatch(getUserBookmarks(userId))
-    }, [dispatch, userId])
+        dispatch(getUserBookmarks(user.id))
+    }, [dispatch, user.id])
 
     // if bookmark icon is clicked (shows full after click)
     const handleSave = async () => {
-        await dispatch(postUserBookmark({ "user_id": userId, "article_id": articleId }))
-        await dispatch(getUserBookmarks(userId))
+        await dispatch(postUserBookmark({ "user_id": user.id, "article_id": articleId }))
+        await dispatch(getUserBookmarks(user.id))
         await dispatch(getAllArticles())
         return
     }
@@ -35,7 +35,7 @@ const ArticlePage = () => {
     // if bookmark icon is clicked again (shows empty after click)
     const handleUnsave = async () => {
         await dispatch(deleteUserBookmark(articleId, currentBookmark.id))
-        await dispatch(getUserBookmarks(userId))
+        await dispatch(getUserBookmarks(user.id))
         await dispatch(getAllArticles())
         return
     }
@@ -43,7 +43,7 @@ const ArticlePage = () => {
     // select icon (full or empty bookmark) to show
     let bookmarkIcon
     if (article) {
-        if (!article.saver_list.includes(userId)) {
+        if (!article.saver_list.includes(user.id)) {
             bookmarkIcon = (<i onClick={handleSave} className="far fa-bookmark"></i>)
         } else {
             bookmarkIcon = (<i onClick={handleUnsave} className="fas fa-bookmark"></i>)

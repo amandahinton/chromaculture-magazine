@@ -57,26 +57,26 @@ const bookmarkReducer = (state= initialState, action) => {
     switch(action.type){
 
         case VIEW_USER_BOOKMARKS:
-            newState = {...state};
+            newState = {};
             action.bookmarks.forEach(bookmark => {
                 newState[bookmark.id] = bookmark
             })
             return newState
 
-            case SAVE_USER_BOOKMARKS: {
-                const newState = {}
-                const saves = action.bookmarks
-                saves.forEach(bookmark => {
-                    newState[bookmark.id] = bookmark
-                })
-                return newState
-            }
+        case SAVE_USER_BOOKMARKS: {
+            const newState = {}
+            const saves = action.bookmarks
+            saves.forEach(bookmark => {
+                newState[bookmark.id] = bookmark
+            })
+            return newState
+        }
 
-            case UNSAVE_USER_BOOKMARK: {
-                const newState = { ...state }
-                delete newState[action.bookmark_id]
-                return newState
-            }
+        case UNSAVE_USER_BOOKMARK: {
+            const newState = { ...state }
+            delete newState[action.bookmark_id]
+            return newState
+        }
 
         default:
             return state;

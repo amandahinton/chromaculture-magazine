@@ -68,7 +68,9 @@ def add_bookmark(articleId):
     )
     db.session.add(new_bookmark)
     db.session.commit()
-    return new_bookmark.to_dict()
+    saves = Bookmark.query.filter(Bookmark.article_id == new_bookmark.article_id).all()
+    saver_list = [save.user_id for save in saves]
+    return new_bookmark.to_dict(saver_list)
 
 """
 DELETE
