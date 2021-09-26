@@ -48,7 +48,7 @@ def seed_articles():
         source="webexhibits.com",
         description="A quick overview of the biological pigments of plants: chlorophylls, carotenoids, flavonoids, and betalains.",
         quote="Pigments are responsible for many of the beautiful colors we see in the plant world. Dyes have often been made from both animal sources and plant extracts . Some of the pigments found in animals have also recently been found in plants.",
-        image_url="http://www.webexhibits.org/causesofcolor/images/lost/soup-vegetable.jpg",
+        image_url="https://images.unsplash.com/photo-1498579397066-22750a3cb424",
         link_url="http://www.webexhibits.org/causesofcolor/7H.html",
     )
     a6 = Article(

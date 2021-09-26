@@ -22,7 +22,7 @@ const LoginForm = () => {
         e.preventDefault();
         const data = await dispatch(login(email, password));
         if (data) { setErrors(data) };
-        history.push("/discover");
+        if (!data) history.push("/discover");
     };
 
     const updateEmail = (e) => { setEmail(e.target.value) };
