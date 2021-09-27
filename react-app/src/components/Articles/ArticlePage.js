@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import CommentForm from '../Comments/CommentForm.js';
 import CommentsList from '../Comments/CommentsList.js';
 import ArticleContent from './ArticleContent.js'
 import { getAllArticles } from '../../store/articles';
@@ -26,7 +27,10 @@ const ArticlePage = () => {
                 <div className="article-page-content-div">
                     <ArticleContent  article= {article} />
                 </div>
-                <div className="article-page-comment-div">
+                <div className="article-page-comment-form">
+                    <CommentForm />
+                </div>
+                <div className="article-page-comment">
                     <CommentsList />
                 </div>
             </div>

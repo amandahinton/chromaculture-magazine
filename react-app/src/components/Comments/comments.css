@@ -1,6 +1,6 @@
 /* CommentsList Component */
 
-.comment-list-div {
+.comments-list-container {
     border: 2px solid var(--coral);
     margin: 20px 0px 0px;
     padding: 10px 40px 30px;
@@ -9,6 +9,6 @@
 
 /* SingleComment Component */
 
-.single-comment-div p {
+.single-comment-container li{
     margin: 15px 0 0
 }
