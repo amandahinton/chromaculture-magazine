@@ -22,10 +22,11 @@ const ArticlePage = () => {
 
     if (article) {
         return (
-            <div className="article-container">
-                <ArticleContent articleId= {articleId} />
-
-                <div className="article-page-comment-section">
+            <div className="article-page-container">
+                <div className="article-page-content-div">
+                    <ArticleContent  article= {article} />
+                </div>
+                <div className="article-page-comment-div">
                     <CommentsList />
                 </div>
             </div>

@@ -43,6 +43,9 @@ a {
     max-width: 1600px;
     margin: auto;
     padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 

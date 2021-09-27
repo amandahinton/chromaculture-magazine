@@ -4,33 +4,28 @@ import { getAllArticles } from '../../../store/articles';
 import ArticleContent from'../ArticleContent.js'
 import "../articles.css"
 
-const ArticleDetail = ({articleId, setShowModal}) => {
+const ArticleDetail = ({article, setShowArticleModal}) => {
 
     const dispatch = useDispatch()
 
-    const articles = useSelector(state => state?.articles)
-    const article = articles[articleId];
-
-    document.querySelector("body").style.overflow = 'hidden';
+    // document.querySelector("body").style.overflow = 'hidden';
 
     useEffect(() => {
         dispatch(getAllArticles())
     }, [dispatch])
 
     const closeOverlay = () => {
-        setShowModal(false)
-        document.querySelector("body").style.overflow = 'visible';
+        setShowArticleModal(null)
+        // document.querySelector("body").style.overflow = 'visible';
     }
 
     if (article) {
         return (
-            <div className="modal-wrapper-div article-wrapper">
-                <div className="article-detail-info">
-                    <div className="close-button-div">
-                        <i onClick={closeOverlay} className="far fa-window-close"></i>
-                    </div>
-                    <ArticleContent articleId={articleId} />
+            <div className="modal-wrapper-div article-modal-container">
+                <div className="close-button-div">
+                    <i onClick={closeOverlay} className="fas fa-window-close"></i>
                 </div>
+                <ArticleContent article={article} />
             </div>
         );
     } else {

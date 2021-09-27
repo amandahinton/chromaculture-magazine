@@ -6,17 +6,14 @@ import { getUserBookmarks, postUserBookmark, deleteUserBookmark } from '../../st
 import "./articles.css"
 
 
-const ArticleContent = ({articleId}) => {
+const ArticleContent = ({article}) => {
 
     const dispatch = useDispatch()
-
-    const articles = useSelector(state => state?.articles)
-    const article = articles[articleId];
 
     const user = useSelector(state => state?.session.user)
 
     const allBookmarks = useSelector(state => Object.values(state?.bookmarks))
-    const currentBookmark = allBookmarks.filter(bookmark => +articleId === +bookmark.article_id && +user.id === +bookmark.user_id)[0]
+    const currentBookmark = allBookmarks.filter(bookmark => +article.id === +bookmark.article_id && +user.id === +bookmark.user_id)[0]
 
     useEffect(() => {
         dispatch(getAllArticles())
@@ -25,7 +22,7 @@ const ArticleContent = ({articleId}) => {
 
     // if bookmark icon is clicked (shows full after click)
     const handleSave = async () => {
-        await dispatch(postUserBookmark({ "user_id": user.id, "article_id": articleId }))
+        await dispatch(postUserBookmark({ "user_id": user.id, "article_id": article.id }))
         await dispatch(getUserBookmarks(user.id))
         await dispatch(getAllArticles())
         return
@@ -33,7 +30,7 @@ const ArticleContent = ({articleId}) => {
 
     // if bookmark icon is clicked again (shows empty after click)
     const handleUnsave = async () => {
-        await dispatch(deleteUserBookmark(articleId, currentBookmark.id))
+        await dispatch(deleteUserBookmark(article.id, currentBookmark.id))
         await dispatch(getUserBookmarks(user.id))
         await dispatch(getAllArticles())
         return
@@ -52,25 +49,25 @@ const ArticleContent = ({articleId}) => {
 
     if (article) {
         return (
-            <div className="article-container">
+            <div className="article-content-container">
                 <div className="bookmark-div">
                     {bookmarkIcon}
                 </div>
-                <div className="article-page-info">
-                    <h1 className="article-page-title">{article.title}</h1>
-                    <img className="article-page-image" src={article.image_url} alt="article preview" />
-                    <p className="article-page-author">{article.author}</p>
-                    <p className="article-page-source">{article.source}</p>
-                    <p className="article-page-savers">{(article.saver_list).length} bookmarked</p>
-                    <p className="article-page-description">{article.description}</p>
+                <div className="article-info">
+                    <h1 className="article-title">{article.title}</h1>
+                    <img className="article-image" src={article.image_url} alt="article preview" />
+                    <p className="article-author">{article.author}</p>
+                    <p className="article-source">{article.source}</p>
+                    <p className="article-savers">{(article.saver_list).length} bookmarked</p>
+                    <p className="article-description">{article.description}</p>
 
-                    <div className="article-page-quote-div">
+                    <div className="article-quote-div">
                         <i className="fas fa-quote-left"></i>
-                        <p className="article-page-quote">{article.quote}</p>
+                        <p className="article-quote">{article.quote}</p>
                         <i className="fas fa-quote-right"></i>
                     </div>
 
-                    <a href={article.link_url} className="article-page-external-link" target={"_blank"} rel={"noreferrer"}>read full article</a>
+                    <a href={article.link_url} className="article-external-link" target={"_blank"} rel={"noreferrer"}>read full article</a>
                 </div>
 
             </div>

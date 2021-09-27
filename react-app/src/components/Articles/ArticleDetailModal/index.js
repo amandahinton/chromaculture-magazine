@@ -1,24 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from '../../../context/Modal';
 import ArticleDetail from './ArticleDetail'
 
 
-function ArticleDetailModal({articleId}) {
-  const [showModal, setShowModal] = useState(false);
+function ArticleDetailModal({article, showArticleModal, setShowArticleModal}) {
+  // const [showModal, setShowModal] = useState(false);
+
+
+
 
   return (
     <>
         <button
             className="article-detail-button"
-            onClick={() => setShowModal(true)}>
+            onClick={() => setShowArticleModal(article)}>
             read more
         </button>
-        {showModal && (
+        {showArticleModal && showArticleModal?.id === article?.id && (
         <Modal onClose={() => {
-            setShowModal(false);
-            document.querySelector("body").style.overflow = 'visible';
+            setShowArticleModal(null);
+            // document.querySelector("body").style.overflow = 'visible';
         }}>
-            <ArticleDetail articleId={articleId} setShowModal={setShowModal} />
+            <ArticleDetail article={article} setShowArticleModal={setShowArticleModal} />
         </Modal>
       )}
     </>
