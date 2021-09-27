@@ -1,47 +1,53 @@
-/*
-#modal {
+.login-wrapper, .register-wrapper {
+  min-width: 300px;
+  max-width: 300px;
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 20px 2px 90px;
   position: fixed;
-  top: 107px;
-  right: 456px;
+  top: 108px;
+  right: 115px;
+}
+
+.login-wrapper {
+  background-image: url(../../images/bookmark_login.png);
+}
+
+.register-wrapper {
+  background-image: url(../../images/bookmark_register.png);
+
+}
+
+.demo-user-div {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-@media all and (max-width: 1149px) {
-  #modal {
+.demo-user-text {
+  margin-block-start: 30px;
+  margin-block-end: 5px;
+}
+
+
+/* RESPONSIVE */
+
+@media all and (max-width: 1249px) {
+  .login-wrapper, .register-wrapper {
     top: 158px;
-    position: fixed;
-    top: 0;
-    right: 0;
+    margin: auto;
     left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    right: 0;
   }
 }
 
-@media all and (max-width: 1149px) {
-  #modal {
-    top: 158px;
-  }
-}
-
-@media all and (max-width: 474px) {
-  #modal {
+@media all and (max-width: 699px) {
+  .login-wrapper, .register-wrapper {
     top: 208px;
+    margin: auto;
+    left: 0;
+    right: 0;
   }
 }
-
-#modal-background {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-
-#modal-content {
-  position: absolute;
-} */

@@ -13,9 +13,10 @@
     align-items: center;
     justify-content: center;
     color: black;
-    margin: 75px 100px 30px;
+    margin: 75px 0 30px;
     font-size: 24px;
     line-height: 1.5;
+    width: 100%
 }
 
 .discover-article-div {

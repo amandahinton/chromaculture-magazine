@@ -43,6 +43,9 @@ a {
     max-width: 1600px;
     margin: auto;
     padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -82,26 +85,6 @@ a {
 
 /* FORMS */
 
-.login-wrapper, .register-wrapper {
-    min-width: 300px;
-    max-width: 300px;
-    background-size:100% 100%;
-    background-repeat: no-repeat;
-    color: white;
-    padding: 20px;
-  }
-
-.login-wrapper {
-    background-image: url(./images/bookmark_login.png);
-}
-
-.register-wrapper {
-    background-image: url(./images/bookmark_register.png);
-}
-
-.demo-login, .demo-register {
-    margin-bottom: 80px;
-}
 
 
 .form-div {
@@ -137,14 +120,10 @@ a {
     /* margin: 15px; */
 }
 
-.demo-user-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.demo-user-text {
-    /* margin-block-start: 0; */
-    margin-block-end: 5px;
+
+@media all and (max-width: 399px) {
+    .page-container {
+        padding: 0 20px;
+    }
 }

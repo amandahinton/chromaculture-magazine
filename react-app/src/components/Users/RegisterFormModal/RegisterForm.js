@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import { register, login } from '../../../store/session';
+import "../users.css"
 // import { fetchUsers } from '../../../store/users';
 
 const RegisterForm = () => {
@@ -25,10 +26,8 @@ const RegisterForm = () => {
     // const onRegister = async (e) => {
     //   e.preventDefault();
     //   const data = await dispatch(Register(username, email, favoriteColor, password, confirmPassword));
+    //   if (data) setErrors(data)
     //   dispatch(fetchUsers())
-    //   if (data) {
-    //     setErrors(data)
-    //   }
     // };
 
     const onRegister = async (e) => {
