@@ -52,31 +52,31 @@ export const createComment = (comment) => async (dispatch) => {
     }
 }
 
-export const updateComment = ({commentId, updatedContent, articleId}) => async (dispatch) => {
-    const res = await fetch(`/api/articles/${articleId}/comments/${commentId}`, {
+export const updateComment = (comment) => async (dispatch) => {
+    const res = await fetch(`/api/articles/${comment.articleId}/comments/${comment.commentId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            updatedContent
+            comment
         })
     })
 
     if (res.ok) {
-        const editedComment = await res.json();
-        dispatch(editComment(editedComment));
-        return editedComment
+        const content = await res.json();
+        dispatch(editComment(content));
+        return content
     }
 }
 
-export const deleteComment = ({commentId, articleId}) => async (dispatch) => {
-    const res = await fetch(`/api/articles/${articleId}/comments/${commentId}`, {
+export const deleteComment = (comment) => async (dispatch) => {
+    const res = await fetch(`/api/articles/${comment.article_id}/comments/${comment.id}`, {
         method: 'DELETE'
     })
 
     if (res.ok) {
-        dispatch(removeComment(commentId))
+        dispatch(removeComment(comment.comment_id))
     }
 }
 

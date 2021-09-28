@@ -143,18 +143,18 @@ add a new comment to this article
 @login_required
 def update_comment(articleId, commentId):
     data = request.get_json()["comment"]
-    comment = data["updatedComment"]
+    content = data["updatedComment"]
 
-    updated_comment = Comment.query.filter(Comment.id == commentId).all()
-    updated_comment[0].comment = comment
+    edited_comment = Comment.query.filter(Comment.id == commentId).all()
+    edited_comment[0].content = content
 
     db.session.commit()
 
     return {'comment': {
-        'id': updated_comment[0].id,
-        'article_id': updated_comment[0].article_id,
-        'user_id': updated_comment[0].user_id,
-        'content': updated_comment[0].content,
+        'id': edited_comment[0].id,
+        'article_id': edited_comment[0].article_id,
+        'user_id': edited_comment[0].user_id,
+        'content': edited_comment[0].content,
     }}
 
 
@@ -165,7 +165,7 @@ add a new comment to this article
 """
 @article_routes.route('/<int:articleId>/comments/<int:commentId>', methods=["DELETE"])
 @login_required
-def delete_comment(commentId):
+def delete_comment(articleId, commentId):
     removed_comment = Comment.query.filter(Comment.id == commentId).first()
 
     db.session.delete(removed_comment)
@@ -173,7 +173,7 @@ def delete_comment(commentId):
 
     return {'deleted_comment': {
         'id': removed_comment.id,
-        'post_id': removed_comment.post_id,
+        'article_id': removed_comment.article_id,
         'user_id': removed_comment.user_id,
-        'comment': removed_comment.comment,
+        'content': removed_comment.content,
     }}

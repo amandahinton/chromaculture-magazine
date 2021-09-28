@@ -32,7 +32,7 @@ function SingleComment({comment}) {
 
     const [showEdit, setShowEdit] = useState(false)
     const [showDelete, setShowDelete] = useState(false)
-    const [updatedContent, setUpdatedContent] = useState(comment.content)
+    const [updatedComment, setUpdatedComment] = useState(comment.content)
     const [validationErrors, setValidationErrors] = useState([])
 
     // delete comment
@@ -49,7 +49,7 @@ function SingleComment({comment}) {
 
     const handleSubmitEdit = async (e) => {
         e.preventDefault();
-        const payload = {commentId, updatedContent, articleId}
+        const payload = {commentId, updatedComment, articleId}
         let editedComment = await dispatch(updateComment(payload))
         if (editedComment) {
             setShowEdit(false)
@@ -60,9 +60,9 @@ function SingleComment({comment}) {
 
     useEffect(() => {
         const errors = [];
-        // if (updatedContent.length < 1) errors.push("enter comment")
+        // if (updatedComment.length < 1) errors.push("enter comment")
         setValidationErrors(errors)
-    }, [updatedContent])
+    }, [updatedComment])
 
 
     if (userId === comment.user_id) {
@@ -72,10 +72,10 @@ function SingleComment({comment}) {
 
                     <form className="" onSubmit={handleSubmitEdit}>
                         <textarea
-                            placeholder={comment.comment}
+                            placeholder={comment.content}
                             name="updatedComment"
-                            value={updatedContent}
-                            onChange={(e) => setUpdatedContent(e.target.value)}
+                            value={updatedComment}
+                            onChange={(e) => setUpdatedComment(e.target.value)}
                         />
                         <button
                             type="submit"
@@ -103,7 +103,7 @@ function SingleComment({comment}) {
                         <i onClick={handleEdit} className="fas fa-pencil-alt"></i>
                         <i onClick={handleDelete} className="fas fa-trash-alt"></i>
                     </div>
-                    {showDelete && <DeleteComment commentId={comment.id} showDeleteModal={showDelete} setShowDeleteModal={setShowDelete} />}
+                    {showDelete && <DeleteComment comment={comment} showDeleteModal={showDelete} setShowDeleteModal={setShowDelete} />}
                 </li>
             )
         }
