@@ -1,17 +1,3 @@
-// import React from 'react'
-
-// function SingleComment({comment}) {
-
-//     return (
-//         <li className="comments-list-item">
-//             <p className="comment-content">{comment.content}</p>
-//             <p className="comment-author">- {comment.user_id}</p>
-//         </li>
-//     );
-// }
-
-// export default SingleComment;
-
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -78,20 +64,20 @@ function SingleComment({comment}) {
                             onChange={(e) => setUpdatedComment(e.target.value)}
                         />
                         <button
-                            className='comment-edit-confirm-button'
+                            className='edit-comment-confirm-button'
                             type="submit"
                             disabled={validationErrors.length > 0}
                         >
-                            <i className="fas fa-check-square"></i>
+                            <i className="fas fa-check-square edit-comment-check"></i>
                         </button>
                     </form>
 
                     <form>
                         <button
-                            className='comment-edit-cancel-button'
+                            className='edit-comment-cancel-button'
                             onClick={() => setShowEdit(false)}
                         >
-                            <i className="fas fa-window-close"></i>
+                            <i className="fas fa-window-close edit-comment-x"></i>
                         </button>
                     </form>
                 </div>
@@ -101,7 +87,7 @@ function SingleComment({comment}) {
                 <li className="comments-list-item">
                     <p className="comment-content">{comment.content}</p>
                     <p className="comment-author">- {comment.user.username}</p>
-                    <div className="user-comment-change-div">
+                    <div className="comment-change-div">
                         <i onClick={handleEdit} className="fas fa-pencil-alt"></i>
                         <i onClick={handleDelete} className="fas fa-trash-alt"></i>
                     </div>

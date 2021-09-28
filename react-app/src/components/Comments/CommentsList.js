@@ -21,7 +21,7 @@ function CommentsList({ articleId }) {
     return (
         <div className="comments-list-container">
             <h3>Comments</h3>
-            <div className="article-page-comment-form">
+            <div className="article-page-comment-form-div">
                 <CommentForm />
             </div>
 

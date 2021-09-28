@@ -6,7 +6,7 @@
     padding: 10px 40px 30px;
 }
 
-.article-page-comment-form {
+.article-page-comment-form-div {
 
 }
 
@@ -17,20 +17,80 @@
 
 /* SingleComment Component */
 
-.single-comment-container li{
-    margin: 15px 0 0
+.single-comment-container{
+
 }
+
+
+.comments-list-item {
+    margin: 20px 0 0;
+    list-style: none;
+    padding-inline-start: 0;
+}
+
 
 .edit-comment-div {
 
 }
 
-.edit-commnent-form-div {
+.edit-comment-form-div {
 
 }
 
+.edit-comment-confirm-button {
+
+}
+
+.edit-comment-check {
+
+}
+
+.edit-comment-cancel-button {
+
+}
+
+.edit-comment-x {
+
+}
+
+.comments-list-item {
+
+}
+
+.comment-content {
+
+}
+
+.comment-author {
+
+}
+
+.comment-change-div {
+
+}
+
+.fa-pencil-alt {
+
+}
+
+.fa-trash-alt {
+    
+}
 
 
+/* CommentForm Component */
+
+.comment-form-div {
+
+}
+
+.comment-field {
+
+}
+
+.comment-submit-button {
+
+}
 
 .fa-comment {
     color: var(--pink);
@@ -51,22 +111,6 @@
     border: none;
 }
 
-
-/* CommentForm Component */
-
-.comment-form-div {
-
-}
-
-.comment-field {
-
-}
-
-.comment-submit-button {
-
-}
-
-
 /* DeleteComment Component */
 
 .delete-comment-verify-popup {
@@ -83,12 +127,4 @@
 .delete-verify-buttons-div {
     display: flex;
     justify-content: center;
-}
-
-.delete-comment-confirm-button {
-
-}
-
-.delete-comment-cancel-button {
-
 }

@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { Modal } from '../../context/Modal.js';
 import { deleteComment, readComments } from '../../store/comments';
+import './comments.css'
+
 
 function DeleteCommentModal({ comment, showDeleteModal, setShowDeleteModal }) {
 
@@ -25,8 +27,8 @@ function DeleteCommentModal({ comment, showDeleteModal, setShowDeleteModal }) {
                     <div className="delete-comment-verify-popup">
                         <h3 className="delete-verify-text" >Ready to delete your comment?</h3>
                         <div className="delete-verify-buttons-div">
-                            <button className="secondary-button delete-comment-confirm-button" onClick={handleDelete}>Confirm</button>
-                            <button className="secondary-button delete-comment-cancel-button" onClick={() => setShowDeleteModal(false)}>
+                            <button className="secondary-button" onClick={handleDelete}>Confirm</button>
+                            <button className="secondary-button" onClick={() => setShowDeleteModal(false)}>
                                 Cancel
                             </button>
                         </div>
