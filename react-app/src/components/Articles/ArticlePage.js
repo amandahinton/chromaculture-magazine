@@ -27,7 +27,7 @@ const ArticlePage = () => {
                     <ArticleContent  article= {article} />
                 </div>
 
-                <div className="article-page-comment">
+                <div className="article-page-comment-div">
                     <CommentsList articleId={articleId} />
                 </div>
             </div>

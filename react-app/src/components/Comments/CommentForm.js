@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { readComments, createComment } from '../../store/comments';
+import './comments.css'
 
 const CommentForm = () => {
     const dispatch = useDispatch();
@@ -13,13 +14,14 @@ const CommentForm = () => {
     const { id: userId } = user
 
     const [content, setContent] = useState('')
+    const [validationErrors, setValidationErrors] = useState([])
 
-    // const [validationErrors, setValidationErrors] = useState([])
-    // useEffect(() => {
-    //     const errors = [];
-    //     if (comment.length === 0) errors.push("Please leave a comment")
-    //     setValidationErrors(errors)
-    // }, [comment])
+
+    useEffect(() => {
+        const errors = [];
+        if (content.length < 1 || content.length > 500) errors.push("comment must be 1-500 characters in length")
+        setValidationErrors(errors)
+    }, [content])
 
     const reset = () => {
         setContent('');
@@ -27,6 +29,7 @@ const CommentForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (validationErrors > 0) return;
         const payload = {
             userId,
             articleId,
@@ -42,19 +45,22 @@ const CommentForm = () => {
     }
 
     return (
-        <form className="form-div" onSubmit={handleSubmit}>
-                <textarea
-                    placeholder="Add a comment"
-                    name="content"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                />
+        <form className="comment-form-div" onSubmit={handleSubmit}>
+            <textarea
+                className='form-input comment-field'
+                placeholder="comment must be 1-500 characters in length"
+                name="content"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+            />
             <button
+                className='comment-submit-button'
                 type="submit"
-                // disabled={validationErrors.length > 0}
+                disabled={validationErrors.length > 0}
             >
-                post comment
+                <i className="fas fa-comment"></i>
             </button>
+
         </form>
     )
 }

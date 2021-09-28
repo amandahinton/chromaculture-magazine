@@ -2,8 +2,16 @@
 
 .comments-list-container {
     border: 2px solid var(--coral);
-    margin: 20px 0px 0px;
+    margin: 20px 30px 30px 0;
     padding: 10px 40px 30px;
+}
+
+.article-page-comment-form {
+
+}
+
+.comments-list {
+
 }
 
 
@@ -11,4 +19,76 @@
 
 .single-comment-container li{
     margin: 15px 0 0
+}
+
+.edit-comment-div {
+
+}
+
+.edit-commnent-form-div {
+
+}
+
+
+
+
+.fa-comment {
+    color: var(--pink);
+    font-size: 40px;
+}
+
+.fa-comment:hover {
+    color: blue;
+}
+
+.comment-submit-button {
+    background-color: white;
+    border: none;
+}
+
+.comment-submit-button {
+    background-color: none;
+    border: none;
+}
+
+
+/* CommentForm Component */
+
+.comment-form-div {
+
+}
+
+.comment-field {
+
+}
+
+.comment-submit-button {
+
+}
+
+
+/* DeleteComment Component */
+
+.delete-comment-verify-popup {
+    background-color: white;
+    padding: 10px 30px 20px;
+    border: 20px solid var(--coral)
+
+}
+
+.delete-verify-text {
+    color: blue;
+}
+
+.delete-verify-buttons-div {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-comment-confirm-button {
+
+}
+
+.delete-comment-cancel-button {
+
 }

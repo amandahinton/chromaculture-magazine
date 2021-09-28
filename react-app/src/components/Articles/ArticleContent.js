@@ -66,7 +66,7 @@ const ArticleContent = ({article}) => {
                         <i className="fas fa-quote-right"></i>
                     </div>
 
-                    <a href={article.link_url} className="article-external-link" target={"_blank"} rel={"noreferrer"}>full article</a>
+                    <a href={article.link_url} className="article-external-link" target={"_blank"} rel={"noreferrer"}>full article <i className="fas fa-arrow-right"></i></a>
                 </div>
 
             </div>

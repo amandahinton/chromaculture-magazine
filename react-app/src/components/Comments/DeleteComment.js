@@ -22,12 +22,14 @@ function DeleteCommentModal({ comment, showDeleteModal, setShowDeleteModal }) {
         <>
             {showDeleteModal && (
                 <Modal onClose={() => setShowDeleteModal(false)}>
-                    <div className="delete-comment-confirm">
-                        <p className="delete-comment-text" >Ready to delete your comment?</p>
-                        <button className="secondary-button" onClick={handleDelete}>Confirm</button>
-                        <button className="secondary-button" onClick={() => setShowDeleteModal(false)}>
-                            Cancel
-                        </button>
+                    <div className="delete-comment-verify-popup">
+                        <h3 className="delete-verify-text" >Ready to delete your comment?</h3>
+                        <div className="delete-verify-buttons-div">
+                            <button className="secondary-button delete-comment-confirm-button" onClick={handleDelete}>Confirm</button>
+                            <button className="secondary-button delete-comment-cancel-button" onClick={() => setShowDeleteModal(false)}>
+                                Cancel
+                            </button>
+                        </div>
                     </div>
                 </Modal>
             )

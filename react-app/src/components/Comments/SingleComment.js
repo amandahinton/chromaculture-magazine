@@ -70,7 +70,7 @@ function SingleComment({comment}) {
             return (
                 <div className="edit-comment-div">
 
-                    <form className="" onSubmit={handleSubmitEdit}>
+                    <form className="edit-comment-form-div" onSubmit={handleSubmitEdit}>
                         <textarea
                             placeholder={comment.content}
                             name="updatedComment"
@@ -78,18 +78,20 @@ function SingleComment({comment}) {
                             onChange={(e) => setUpdatedComment(e.target.value)}
                         />
                         <button
+                            className='comment-edit-confirm-button'
                             type="submit"
                             disabled={validationErrors.length > 0}
                         >
-                            update
+                            <i className="fas fa-check-square"></i>
                         </button>
                     </form>
 
                     <form>
                         <button
+                            className='comment-edit-cancel-button'
                             onClick={() => setShowEdit(false)}
                         >
-                            cancel
+                            <i className="fas fa-window-close"></i>
                         </button>
                     </form>
                 </div>

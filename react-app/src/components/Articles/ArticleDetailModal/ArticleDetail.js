@@ -20,7 +20,7 @@ const ArticleDetail = ({article, setShowArticleModal}) => {
         return (
             <div className="modal-wrapper-div article-modal-container">
                 <div className="close-button-div">
-                    <i onClick={closeOverlay} className="fas fa-window-close"></i>
+                    <i onClick={closeOverlay} className="fas fa-window-close close-modal-x"></i>
                 </div>
                 <ArticleContent article={article} />
             </div>
