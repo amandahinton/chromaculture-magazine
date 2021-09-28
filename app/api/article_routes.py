@@ -60,6 +60,10 @@ def get_our_articles():
     return {'articles': saved_articles}
 
 
+###########
+# BOOKMARKS
+###########
+
 """
 POST
 /articles/articleId/bookmarks
@@ -81,7 +85,7 @@ def add_bookmark(articleId):
 
 """
 DELETE
-/articles/articleId/bookmarks
+/articles/articleId/bookmarks/bookmarkId
 remove an existing bookmark
 """
 @article_routes.route('/<int:articleId>/bookmarks/<int:bookmarkId>', methods=["DELETE"])
@@ -96,17 +100,9 @@ def remove_bookmark(articleId, bookmarkId):
     }
 
 
-"""
-GET
-/articles/articleId/comments
-get all comment for this article
-"""
-@article_routes.route('/<int:articleId>/comments')
-@login_required
-def read_comments():
-    comments = Comment.query.all()
-    return {'comments' : [comment.to_dict() for comment in comments]}
-
+###########
+# COMMENTS
+###########
 
 """
 POST
@@ -114,8 +110,8 @@ POST
 add a new comment to this article
 """
 @article_routes.route('/<int:articleId>/comments', methods=["POST"])
-@login_required
-def create_comment():
+# @login_required
+def create_comment(articleId):
     data = request.get_json()["comment"]
     article_id = data["articleId"]
     user_id = data["userId"]
@@ -145,7 +141,7 @@ add a new comment to this article
 """
 @article_routes.route('/<int:articleId>/comments/<int:commentId>', methods=["PUT"])
 @login_required
-def update_comment(commentId):
+def update_comment(articleId, commentId):
     data = request.get_json()["comment"]
     comment = data["updatedComment"]
 

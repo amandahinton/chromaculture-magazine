@@ -12,17 +12,17 @@ const CommentForm = () => {
     const user = useSelector(state => state.session.user)
     const { id: userId } = user
 
-    const [comment, setComment] = useState('')
+    const [content, setContent] = useState('')
 
-    const [validationErrors, setValidationErrors] = useState([])
-    useEffect(() => {
-        const errors = [];
-        if (comment.length === 0) errors.push("Please leave a comment")
-        setValidationErrors(errors)
-    }, [comment])
+    // const [validationErrors, setValidationErrors] = useState([])
+    // useEffect(() => {
+    //     const errors = [];
+    //     if (comment.length === 0) errors.push("Please leave a comment")
+    //     setValidationErrors(errors)
+    // }, [comment])
 
     const reset = () => {
-        setComment('');
+        setContent('');
     }
 
     const handleSubmit = async (e) => {
@@ -30,7 +30,7 @@ const CommentForm = () => {
         const payload = {
             userId,
             articleId,
-            comment
+            content
         }
 
         let newComment = await dispatch(createComment(payload))
@@ -43,15 +43,15 @@ const CommentForm = () => {
 
     return (
         <form className="form-div" onSubmit={handleSubmit}>
-            <textarea
-                placeholder="Add a comment"
-                name="comment"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-            />
+                <textarea
+                    placeholder="Add a comment"
+                    name="content"
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                />
             <button
                 type="submit"
-                disabled={validationErrors.length > 0}
+                // disabled={validationErrors.length > 0}
             >
                 post comment
             </button>

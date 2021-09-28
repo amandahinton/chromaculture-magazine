@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Modal } from '../../../context/Modal';
 import ArticleDetail from './ArticleDetail'
 
 
 function ArticleDetailModal({article, showArticleModal, setShowArticleModal}) {
-  // const [showModal, setShowModal] = useState(false);
-
-
-
 
   return (
     <>
@@ -19,7 +15,6 @@ function ArticleDetailModal({article, showArticleModal, setShowArticleModal}) {
         {showArticleModal && showArticleModal?.id === article?.id && (
         <Modal onClose={() => {
             setShowArticleModal(null);
-            // document.querySelector("body").style.overflow = 'visible';
         }}>
             <ArticleDetail article={article} setShowArticleModal={setShowArticleModal} />
         </Modal>

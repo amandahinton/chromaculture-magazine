@@ -1,10 +1,23 @@
+// import React from 'react'
+
+// function SingleComment({comment}) {
+
+//     return (
+//         <li className="comments-list-item">
+//             <p className="comment-content">{comment.content}</p>
+//             <p className="comment-author">- {comment.user_id}</p>
+//         </li>
+//     );
+// }
+
+// export default SingleComment;
+
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import DeleteComment from './DeleteComment.js';
 import { readComments, updateComment } from '../../store/comments';
 import "./comments.css"
-// import CommentForm from './CommentForm'
 
 function SingleComment({comment}) {
 
@@ -17,24 +30,26 @@ function SingleComment({comment}) {
     const articleId = comment.article_id
     const commentId = comment.id
 
-    // edit comment
     const [showEdit, setShowEdit] = useState(false)
+    const [showDelete, setShowDelete] = useState(false)
+    const [updatedContent, setUpdatedContent] = useState(comment.content)
+    const [validationErrors, setValidationErrors] = useState([])
+
+    // delete comment
+    const handleDelete = (e) => {
+        e.preventDefault();
+        setShowDelete(true)
+    }
+
+    // edit comment
     const handleEdit = (e) => {
         e.preventDefault();
         setShowEdit(true)
     }
 
-    const [updatedComment, setUpdatedComment] = useState(comment.comment)
-    const [validationErrors, setValidationErrors] = useState([])
-    useEffect(() => {
-        const errors = [];
-        if (updatedComment.length < 1) errors.push("enter comment")
-        setValidationErrors(errors)
-    }, [updatedComment])
-
     const handleSubmitEdit = async (e) => {
         e.preventDefault();
-        const payload = {commentId, updatedComment}
+        const payload = {commentId, updatedContent, articleId}
         let editedComment = await dispatch(updateComment(payload))
         if (editedComment) {
             setShowEdit(false)
@@ -43,12 +58,11 @@ function SingleComment({comment}) {
         }
     }
 
-    // delete comment
-    const [showDelete, setShowDelete] = useState(false)
-    const handleDelete = (e) => {
-        e.preventDefault();
-        setShowDelete(true)
-    }
+    useEffect(() => {
+        const errors = [];
+        // if (updatedContent.length < 1) errors.push("enter comment")
+        setValidationErrors(errors)
+    }, [updatedContent])
 
 
     if (userId === comment.user_id) {
@@ -60,8 +74,8 @@ function SingleComment({comment}) {
                         <textarea
                             placeholder={comment.comment}
                             name="updatedComment"
-                            value={updatedComment}
-                            onChange={(e) => setUpdatedComment(e.target.value)}
+                            value={updatedContent}
+                            onChange={(e) => setUpdatedContent(e.target.value)}
                         />
                         <button
                             type="submit"
@@ -83,8 +97,8 @@ function SingleComment({comment}) {
         } else {
             return (
                 <li className="comments-list-item">
-                    <div>{comment.comment}</div>
-                    <p> - {comment.user_details.username}</p>
+                    <p className="comment-content">{comment.content}</p>
+                    <p className="comment-author">- {comment.user.username}</p>
                     <div className="user-comment-change-div">
                         <i onClick={handleEdit} className="fas fa-pencil-alt"></i>
                         <i onClick={handleDelete} className="fas fa-trash-alt"></i>
@@ -96,8 +110,8 @@ function SingleComment({comment}) {
     } else {
         return (
             <li className="comments-list-item">
-                {comment.comment}
-                <p> - {comment.user_details.username}</p>
+                <p className="comment-content">{comment.content}</p>
+                <p className="comment-author">- {comment.user.username}</p>
             </li>
         );
 

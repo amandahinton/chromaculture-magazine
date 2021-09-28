@@ -46,7 +46,6 @@ const ArticleContent = ({article}) => {
         }
     }
 
-
     if (article) {
         return (
             <div className="article-content-container">
@@ -67,7 +66,7 @@ const ArticleContent = ({article}) => {
                         <i className="fas fa-quote-right"></i>
                     </div>
 
-                    <a href={article.link_url} className="article-external-link" target={"_blank"} rel={"noreferrer"}>read full article</a>
+                    <a href={article.link_url} className="article-external-link" target={"_blank"} rel={"noreferrer"}>full article</a>
                 </div>
 
             </div>

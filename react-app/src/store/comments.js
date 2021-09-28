@@ -29,13 +29,13 @@ const removeComment = (commentId) => ({
 
 // THUNKS
 export const readComments = (articleId) => async (dispatch) => {
-    const res = await fetch(`/api/articles/${articleId}/comments/`);
+    const res = await fetch(`/api/comments/`);
     const comments = await res.json()
     dispatch(viewComments(comments.comments))
 }
 
-export const createComment = ({comment, articleId}) => async (dispatch) => {
-    const res = await fetch(`/api/articles/${articleId}/comments/`, {
+export const createComment = (comment) => async (dispatch) => {
+    const res = await fetch(`/api/articles/${comment.articleId}/comments`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -52,21 +52,21 @@ export const createComment = ({comment, articleId}) => async (dispatch) => {
     }
 }
 
-export const updateComment = ({comment, articleId}) => async (dispatch) => {
-    const res = await fetch(`/api/articles/${articleId}/comments/${comment.commentId}`, {
+export const updateComment = ({commentId, updatedContent, articleId}) => async (dispatch) => {
+    const res = await fetch(`/api/articles/${articleId}/comments/${commentId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            comment
+            updatedContent
         })
     })
 
     if (res.ok) {
-        const updatedComment = await res.json();
-        dispatch(editComment(updatedComment));
-        return updatedComment
+        const editedComment = await res.json();
+        dispatch(editComment(editedComment));
+        return editedComment
     }
 }
 
