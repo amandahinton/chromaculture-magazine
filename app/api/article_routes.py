@@ -1,9 +1,16 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import db, Article, Bookmark
+from app.models import db, Article, Bookmark, Comment
 
 article_routes = Blueprint('articles',__name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    # list WTForms validation errors into a simple list
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
 
 """
 GET
@@ -41,7 +48,7 @@ GET
 all articles created by user 1, which is the editorial team
 along with a list of who has saved those articles
 """
-@article_routes.route("/featured")
+@article_routes.route('/featured')
 def get_our_articles():
     saved_articles = []
     articles = Article.query.order_by(Article.id.desc()).all()
@@ -52,6 +59,10 @@ def get_our_articles():
         saved_articles.append(bookmark)
     return {'articles': saved_articles}
 
+
+###########
+# BOOKMARKS
+###########
 
 """
 POST
@@ -74,7 +85,7 @@ def add_bookmark(articleId):
 
 """
 DELETE
-/articles/articleId/bookmarks
+/articles/articleId/bookmarks/bookmarkId
 remove an existing bookmark
 """
 @article_routes.route('/<int:articleId>/bookmarks/<int:bookmarkId>', methods=["DELETE"])
@@ -87,3 +98,82 @@ def remove_bookmark(articleId, bookmarkId):
         "article_id":articleId,
         "bookmark_id":bookmarkId
     }
+
+
+###########
+# COMMENTS
+###########
+
+"""
+POST
+/articles/articleId/comments
+add a new comment to this article
+"""
+@article_routes.route('/<int:articleId>/comments', methods=["POST"])
+# @login_required
+def create_comment(articleId):
+    data = request.get_json()["comment"]
+    article_id = data["articleId"]
+    user_id = data["userId"]
+    content = data["content"]
+
+    created_comment = Comment(
+        article_id = article_id,
+        user_id = user_id,
+        content = content,
+    )
+
+    db.session.add(created_comment)
+    db.session.commit()
+
+    return {'comment': {
+        'id': created_comment.id,
+        'article_id': created_comment.article_id,
+        'user_id': created_comment.user_id,
+        'content': created_comment.content,
+    }}
+
+
+"""
+PUT
+/articles/articleId/comments
+add a new comment to this article
+"""
+@article_routes.route('/<int:articleId>/comments/<int:commentId>', methods=["PUT"])
+@login_required
+def update_comment(articleId, commentId):
+    data = request.get_json()["comment"]
+    content = data["updatedComment"]
+
+    edited_comment = Comment.query.filter(Comment.id == commentId).all()
+    edited_comment[0].content = content
+
+    db.session.commit()
+
+    return {'comment': {
+        'id': edited_comment[0].id,
+        'article_id': edited_comment[0].article_id,
+        'user_id': edited_comment[0].user_id,
+        'content': edited_comment[0].content,
+    }}
+
+
+"""
+DELETE
+/articles/articleId/comments
+add a new comment to this article
+"""
+@article_routes.route('/<int:articleId>/comments/<int:commentId>', methods=["DELETE"])
+@login_required
+def delete_comment(articleId, commentId):
+    removed_comment = Comment.query.filter(Comment.id == commentId).first()
+
+    db.session.delete(removed_comment)
+    db.session.commit()
+
+    return {'deleted_comment': {
+        'id': removed_comment.id,
+        'article_id': removed_comment.article_id,
+        'user_id': removed_comment.user_id,
+        'content': removed_comment.content,
+    }}

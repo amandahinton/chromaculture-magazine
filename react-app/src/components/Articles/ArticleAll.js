@@ -7,7 +7,6 @@ function ArticleAll({articles}) {
 
     // if there is an article that matches the one stored in showArticleModal, modal is open and background shouldn't scroll
     useEffect(() => {
-
         if (showArticleModal && articles.some((article) => article.id ===showArticleModal.id)) {
           document.querySelector("body").style.overflow = 'hidden';
         } else {

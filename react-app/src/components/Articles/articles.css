@@ -71,10 +71,9 @@
     justify-content: flex-end;
     height: 40px;
     margin: 20px 30px 0;
-
 }
 
-.fa-window-close {
+.close-modal-x {
     font-size: 40px;
     color: var(--yellow);
 }
@@ -85,7 +84,8 @@
 .article-page-container {
     margin: 30px 0;
     display: flex;
-
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .article-page-content-div {
@@ -130,10 +130,6 @@
     max-height: 500px;
 }
 
-.article-title {
-
-}
-
 .article-author {
     margin-top: 20px;
 }
@@ -142,19 +138,19 @@
     margin-bottom: 20px;
 }
 
+.article-description {
+    font-size: 16px;
+}
+
 .article-savers {
     margin-bottom: 20px;
     color: var(--blue)
 }
 
-.article-description {
-    /* padding: 15px 0 0; */
-}
-
-.article-quote-div, .article-quote-div {
+.article-quote-div {
     display: grid;
     grid-template-columns: 40px auto 40px;
-    margin: 20px 0;
+    margin: 40px 0;
 }
 
 .fa-quote-left {
@@ -167,9 +163,11 @@
 
 .article-quote {
     grid-column-start: 2;
-    margin-block-start: 0;
-    margin-block-end: 0;
+    /* margin-block-start: 0;
+    margin-block-end: 0; */
     font-style: italic;
+    font-size: 16px;
+    letter-spacing: .5px;
 }
 
 .fa-quote-right {
@@ -210,42 +208,60 @@
 /* RESPONSIVE */
 
 @media all and (max-width: 649px) {
-    .article-wrapper {
+    .article-modal-container {
         max-width: 400px;
-        max-height: 600px;
         overflow: auto;
     }
 
+    .article-image {
+        max-width: 300px;
+    }
+
+    .article-content-container {
+        padding: 0 20px 20px;
+    }
+
     .close-button-div {
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-end;
-        width: 310px;
-        height: 40px;
         margin-bottom: 10px;
     }
 
     .article-detail-quote-div {
         max-width: 310px;
     }
+
+    .article-title {
+        font-size: 24px;
+    }
+
 }
 
 @media all and (max-width: 449px) {
-    .article-wrapper {
+    .article-modal-container {
         max-width: 300px;
     }
 
+    .article-image {
+        max-width: 200px;
+    }
+
     .close-button-div {
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-end;
-        width: 210px;
-        height: 40px;
-        margin-bottom: 10px;
+        margin: 10px;
     }
 
     .article-detail-quote-div {
         max-width: 210px;
+    }
+
+    .article-title {
+        font-size: 18px;
+    }
+
+    .article-description, .article-quote {
+        font-size: 12px;
+    }
+
+    .article-content-container {
+        margin: 10px;
     }
 }
 
