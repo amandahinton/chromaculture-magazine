@@ -47,7 +47,7 @@ const CommentForm = () => {
     return (
         <form className="comment-form-div" onSubmit={handleSubmit}>
             <textarea
-                className='form-input comment-field'
+                className='comment-field'
                 placeholder="comment must be 1-500 characters in length"
                 name="content"
                 value={content}
@@ -58,7 +58,7 @@ const CommentForm = () => {
                 type="submit"
                 disabled={validationErrors.length > 0}
             >
-                <i className="fas fa-comment"></i>
+                <i className="fas fa-comment comment-submit-icon"></i>
             </button>
 
         </form>

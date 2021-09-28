@@ -16,6 +16,8 @@ const ArticleDetail = ({article, setShowArticleModal}) => {
         setShowArticleModal(null)
     }
 
+    const articlePage = `/articles/${article.id}`
+
     if (article) {
         return (
             <div className="modal-wrapper-div article-modal-container">
@@ -23,6 +25,15 @@ const ArticleDetail = ({article, setShowArticleModal}) => {
                     <i onClick={closeOverlay} className="fas fa-window-close close-modal-x"></i>
                 </div>
                 <ArticleContent article={article} />
+                <div className="comments-link-on-modal">
+                    {/* <button
+                        className="secondary-button"
+                        onclick={articlePage}
+                    >
+                        comments <i className="fas fa-comment"></i>
+                    </button> */}
+                    <a href={articlePage} className="secondary-link-as-button">comments <i className="fas fa-comment"></i></a>
+                </div>
             </div>
         );
     } else {

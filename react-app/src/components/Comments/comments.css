@@ -1,17 +1,36 @@
 /* CommentsList Component */
 
 .comments-list-container {
-    border: 2px solid var(--coral);
-    margin: 20px 30px 30px 0;
-    padding: 10px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid var(--coral);
+    margin: 20px 30px 30px 30px;
+    padding: 10px 40px 10px;
+    width: 580px;
+    box-sizing: border-box;
+}
+
+.comments-list-title {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 50px;
 }
 
 .article-page-comment-form-div {
-
+    width: 500px;
 }
 
 .comments-list {
-
+    width: 580px;
+    box-sizing: border-box;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding: 20px 40px;
 }
 
 
@@ -23,14 +42,15 @@
 
 
 .comments-list-item {
-    margin: 20px 0 0;
+    margin-bottom: 10px;
     list-style: none;
     padding-inline-start: 0;
+    background-color: purple;
 }
 
 
 .edit-comment-div {
-
+    background-color: yellow;
 }
 
 .edit-comment-form-div {
@@ -74,42 +94,43 @@
 }
 
 .fa-trash-alt {
-    
+
 }
 
 
 /* CommentForm Component */
 
 .comment-form-div {
-
+    width: 494px;
+    display: flex;
 }
 
 .comment-field {
-
+    box-sizing: border-box;
+    width: 500px;
 }
 
 .comment-submit-button {
-
+    background-color: var(--pink);
+    border: none;
+    margin-left: 10px;
+    padding: 10px;
 }
 
-.fa-comment {
-    color: var(--pink);
+.comment-submit-button:hover {
+    background-color: var(--white);
+}
+
+.comment-submit-icon {
+    color: var(--yellow);
     font-size: 40px;
 }
 
 .fa-comment:hover {
-    color: blue;
+    color: var(--pink);
 }
 
-.comment-submit-button {
-    background-color: white;
-    border: none;
-}
 
-.comment-submit-button {
-    background-color: none;
-    border: none;
-}
 
 /* DeleteComment Component */
 
@@ -127,4 +148,5 @@
 .delete-verify-buttons-div {
     display: flex;
     justify-content: center;
+    align-items: center;
 }

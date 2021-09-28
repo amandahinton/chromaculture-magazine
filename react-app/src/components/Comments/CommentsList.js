@@ -10,8 +10,6 @@ function CommentsList({ articleId }) {
 
     const allComments = useSelector(state => Object.values(state?.comments))
 
-    console.log(allComments, "LOOOOOOOKK");
-
     const articleComments = allComments.filter(comment => +comment.article_id === +articleId)
 
     useEffect(() => {
@@ -20,7 +18,7 @@ function CommentsList({ articleId }) {
 
     return (
         <div className="comments-list-container">
-            <h3>Comments</h3>
+            <h3 className="comments-list-title">Comments</h3>
             <div className="article-page-comment-form-div">
                 <CommentForm />
             </div>
