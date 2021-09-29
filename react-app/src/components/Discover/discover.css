@@ -6,17 +6,20 @@
     padding-inline-start: 0;
 }
 
-.discover-article-intro p {
+.discover-article-intro {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.discover-article-intro p {
     color: black;
     margin: 75px 0 30px;
     font-size: 24px;
     line-height: 1.5;
-    width: 100%
+    width: 88%
 }
 
 .discover-article-div {

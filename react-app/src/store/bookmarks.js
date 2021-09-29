@@ -7,10 +7,10 @@ const viewUserBookmarks = (bookmarks) => ({
     bookmarks
 })
 
-const saveUserBookmarks = (bookmarks) => ({
-    type: SAVE_USER_BOOKMARKS,
-    bookmarks
-})
+// const saveUserBookmarks = (bookmarks) => ({
+//     type: SAVE_USER_BOOKMARKS,
+//     bookmarks
+// })
 
 const unsaveUserBookmark = (bookmark) => ({
     type: UNSAVE_USER_BOOKMARK,

@@ -28,10 +28,28 @@ function Profile() {
         dispatch(getUserBookmarks(sessionUser.id))
     }, [dispatch, sessionUser.id])
 
-    const bookmarks = useSelector(state => Object.values(state.bookmarks))
+    const bookmarks = useSelector(state => Object.values(state.bookmarks)).reverse()
 
     let articles = []
     for (let bookmark of bookmarks) articles.push(bookmark.article)
+
+    let profileView
+    if (articles.length < 1) {
+        profileView = (
+            <div className="new-user-div">
+                <h1 className="new-user-title">We love hue!</h1>
+                <h2 className="new-user-instructions">Welcome to your page - let's fill it up. Visit the <a href="/discover">discover</a> feed to browse our carefully curated selection of articles about color, then select "read more" to open the article preview.</h2>
+                <h3>Click the blue bookmark in the top left corner of the article preview to save it to this page, which you can access by clicking "bookmarks" in the navigation bar. Click again to remove the bookmark. Read other people's reactions and share your thoughts by clicking the "comments" button in hte top left of the article preview.</h3>
+            </div>
+        )
+    } else {
+        profileView = (
+            <div className="profile-bookmark-div">
+                <h2 className="profile-bookmarks-title">my bookmarks</h2>
+                <ArticleAll articles={articles} />
+            </div>
+        )
+    }
 
     if (!sessionUser) return null;
 
@@ -44,10 +62,10 @@ function Profile() {
                     <div><strong>Favorite Color: </strong> {paramUser.favorite_color}</div>
                 </div>
             </div>
-            <div className="profile-bookmark-div">
-                <h2 className="profile-bookmarks-title">my bookmarks</h2>
-                <ArticleAll articles={articles} />
+            <div>
+                {profileView}
             </div>
+
         </div>
     );
 }

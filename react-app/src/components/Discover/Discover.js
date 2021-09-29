@@ -12,7 +12,7 @@ function Discover() {
         dispatch(getOurArticles())
     }, [dispatch])
 
-    const articles = useSelector(state => Object.values(state.articles))
+    const articles = useSelector(state => Object.values(state.articles)).reverse()
 
     return (
         <div className="discover-container">

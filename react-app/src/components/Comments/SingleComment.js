@@ -1,17 +1,3 @@
-// import React from 'react'
-
-// function SingleComment({comment}) {
-
-//     return (
-//         <li className="comments-list-item">
-//             <p className="comment-content">{comment.content}</p>
-//             <p className="comment-author">- {comment.user_id}</p>
-//         </li>
-//     );
-// }
-
-// export default SingleComment;
-
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -60,7 +46,7 @@ function SingleComment({comment}) {
 
     useEffect(() => {
         const errors = [];
-        // if (updatedComment.length < 1) errors.push("enter comment")
+        if (updatedComment.length < 1 || updatedComment.length > 500) errors.push("comment must be 1-500 characters in length")
         setValidationErrors(errors)
     }, [updatedComment])
 
@@ -70,30 +56,37 @@ function SingleComment({comment}) {
             return (
                 <div className="edit-comment-div">
 
+                    <div className="edit-comment-errors">
+                        {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
+                    </div>
+
                     <form className="edit-comment-form-div" onSubmit={handleSubmitEdit}>
                         <textarea
+                            className='comment-field'
                             placeholder={comment.content}
                             name="updatedComment"
                             value={updatedComment}
+                            rows="4"
                             onChange={(e) => setUpdatedComment(e.target.value)}
                         />
-                        <button
-                            className='comment-edit-confirm-button'
-                            type="submit"
-                            disabled={validationErrors.length > 0}
-                        >
-                            <i className="fas fa-check-square"></i>
-                        </button>
+                        <div className="edit-comment-buttons-div">
+
+                            <button
+                                className='edit-comment-confirm-button'
+                                type="submit"
+                                disabled={validationErrors.length > 0}
+                            >
+                                <i className="fas fa-check-square edit-comment-check"></i>
+                            </button>
+                            <button
+                                className='edit-comment-cancel-button'
+                                onClick={() => setShowEdit(false)}
+                            >
+                                <i className="fas fa-window-close edit-comment-x"></i>
+                            </button>
+                        </div>
                     </form>
 
-                    <form>
-                        <button
-                            className='comment-edit-cancel-button'
-                            onClick={() => setShowEdit(false)}
-                        >
-                            <i className="fas fa-window-close"></i>
-                        </button>
-                    </form>
                 </div>
             )
         } else {
@@ -101,7 +94,7 @@ function SingleComment({comment}) {
                 <li className="comments-list-item">
                     <p className="comment-content">{comment.content}</p>
                     <p className="comment-author">- {comment.user.username}</p>
-                    <div className="user-comment-change-div">
+                    <div className="comment-change-div">
                         <i onClick={handleEdit} className="fas fa-pencil-alt"></i>
                         <i onClick={handleDelete} className="fas fa-trash-alt"></i>
                     </div>

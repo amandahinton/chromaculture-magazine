@@ -48,6 +48,11 @@ a {
     align-items: center;
 }
 
+@media all and (max-width: 399px) {
+    .page-container {
+        padding: 0 20px;
+    }
+}
 
 /* BUTTONS */
 
@@ -82,9 +87,39 @@ a {
     color: var(--yellow);
 }
 
+.primary-link-as-button {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: var(--yellow);
+    border: 2px solid var(--pink);
+    color: black;
+    font-weight: 700;
+}
+
+.secondary-link-as-button {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin: 0 0 20px;
+    background-color: white;
+    border: 2px solid var(--pink);
+    color: var(--pink);
+    font-weight: 700;
+}
+
+.primary-link-as-button:hover, .secondary-link-as-button:hover {
+    background-color: var(--pink);
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+}
 
 /* FORMS */
-
 
 
 .form-div {
@@ -116,14 +151,6 @@ a {
     padding: 5px 10px;
 }
 
-.form-submit{
-    /* margin: 15px; */
-}
-
-
-
-@media all and (max-width: 399px) {
-    .page-container {
-        padding: 0 20px;
-    }
+.form-input::placeholder {
+    color: var(--coral);
 }
