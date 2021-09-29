@@ -66,8 +66,11 @@ function App() {
                     </ProtectedRoute> */}
 
                     <Route path='/' exact={true} >
-                        <Splash />
+                        <div className="page-container">
+                            <Splash />
+                        </div>
                     </Route>
+
                 </Switch>
             <Footer />
         </BrowserRouter>
