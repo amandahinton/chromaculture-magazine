@@ -44,6 +44,27 @@
     word-break: break-word;
 }
 
+.new-user-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-user-title {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.new-user-instructions {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
 .profile-bookmark-div {
     display: flex;
     flex-direction: column;
@@ -81,10 +102,29 @@
     .profile-bio-text {
         font-size: 12px;
     }
+
     .profile-bio-div {
         height: 100px;
     }
+
     .profile-bio-text div {
         margin: 0 10px;
     }
+
+    .new-user-title {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+
+    .new-user-instructions {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .new-user-div h3 {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 2px;
+    }
+
 }

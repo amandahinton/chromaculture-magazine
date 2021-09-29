@@ -3,16 +3,6 @@ from app.models import db, Article
 def seed_articles():
     a1 = Article(
         user_id=1,
-        title="Inside the Library That Holds the World’s Rarest Colors",
-        author="Abigail Cain",
-        source="atsy.net",
-        description="This detailed history of the Forbes Pigment Collection at Harvard traces from the archive's inception in 1910 to its current research. With the over 2,500 specimens, scientists, historians, and curators use the collection to better understand the materials used to make art.",
-        quote="Historic it may be, but the Forbes Collection deals as much with the future of artworks as the past. It could almost be described as a conservator’s crystal ball: offering glimpses into the aging process for various pigments, binders, and any other materials that might make their way into a work of art.",
-        image_url="https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2FxXNUGxecMHnoC5PXKlaxGQ%252F20170913-artsy-harvard-pigment-0030.jpg&width=2000&quality=80",
-        link_url="https://www.artsy.net/article/artsy-editorial-inside-library-holds-worlds-rarest-colors",
-    )
-    a2 = Article(
-        user_id=1,
         title="Red-Green & Blue-Yellow: The Stunning Colors You Can't See",
         author="Natalie Wolchover",
         source="livescience.com",
@@ -21,15 +11,25 @@ def seed_articles():
         image_url="https://cdn.mos.cms.futurecdn.net/dRDNSeqer3ciNjYEUtpAu8-1024-80.jpg.webp",
         link_url="https://www.livescience.com/17948-red-green-blue-yellow-stunning-colors.html",
     )
+    a2 = Article(
+        user_id=1,
+        title="The Physics Hypertextbook: Color",
+        author="Glenn Elert",
+        source="physics.info",
+        description="A sprawling intro to the physics of color: wavelengths and frequencies, how our eyes work, the language we use, color spaces, additive and subtractive models, and more.",
+        quote="Objects don't have a color, they give off light that appears to be a color. Spectral power distributions exist in the physical world, but color exists only in the mind of the beholder. Our perception of color is not an objective measure of anything about the light that enters our eyes, but it correlates pretty well with objective reality.",
+        image_url="https://physics.info/color/cones.svg",
+        link_url="https://physics.info/color/",
+    )
     a3 = Article(
         user_id=1,
-        title="The Reality of Color Is Perception",
-        author="Mazviita Chirimutta",
-        source="nautil.us",
-        description="Philosophers and scientists have long debated the essence of colors, which straddle the truth of the physical world and the subjectivity of an individual's visual perception. Here, a linguistic middle ground is proposed that embraces that dual nature.",
-        quote="...colors are ways that stimuli appear to certain kinds of individuals, and at the same time, ways that individuals perceive certain kinds of stimuli. The “adverbialism” comes in because colors are said to be properties of processes rather than things. So instead of treating color words as adjectives (which describe things), we should treat them as adverbs (which describe activities). I eat hurriedly, walk gracelessly, and on a fine day I see the sky bluely!",
-        image_url="http://static.nautil.us/6748_dde16b86c64390f0af01275a44d3a42d.jpg",
-        link_url="https://nautil.us/issue/56/perspective/the-reality-of-color-is-perception-rp",
+        title="Announcing the Pantone Color of the Year 2021",
+        author="Pantone Color Institute",
+        source="pantone.com",
+        description="Pantone has published their anticipated Color of the Year. Two actually! The pair of colors--a cheery yellow and a sturdy gray--are said to reflect our quest for resilience and vitality as we overcome this time of uncertainty.",
+        quote="Emboldening the spirit, the pairing of PANTONE 17-5104 Ultimate Gray + PANTONE 13-0647 highlights our innate need to be seen, to be visible, to be recognized, to have our voices heard.",
+        image_url="https://www.pantone.com/media/catalog/product/f/h/fhiprp-color-of-the-year-2021-ultimate-gray-illuminating.jpg",
+        link_url="https://www.pantone.com/color-of-the-year-2021",
     )
     a4 = Article(
         user_id=1,
@@ -133,13 +133,13 @@ def seed_articles():
     )
     a14 = Article(
         user_id=1,
-        title="The Physics Hypertextbook: Color",
-        author="Glenn Elert",
-        source="physics.info",
-        description="A sprawling intro to the physics of color: wavelengths and frequencies, how our eyes work, the language we use, color spaces, additive and subtractive models, and more.",
-        quote="Objects don't have a color, they give off light that appears to be a color. Spectral power distributions exist in the physical world, but color exists only in the mind of the beholder. Our perception of color is not an objective measure of anything about the light that enters our eyes, but it correlates pretty well with objective reality.",
-        image_url="https://physics.info/color/cones.svg",
-        link_url="https://physics.info/color/",
+        title="The Reality of Color Is Perception",
+        author="Mazviita Chirimutta",
+        source="nautil.us",
+        description="Philosophers and scientists have long debated the essence of colors, which straddle the truth of the physical world and the subjectivity of an individual's visual perception. Here, a linguistic middle ground is proposed that embraces that dual nature.",
+        quote="...colors are ways that stimuli appear to certain kinds of individuals, and at the same time, ways that individuals perceive certain kinds of stimuli. The “adverbialism” comes in because colors are said to be properties of processes rather than things. So instead of treating color words as adjectives (which describe things), we should treat them as adverbs (which describe activities). I eat hurriedly, walk gracelessly, and on a fine day I see the sky bluely!",
+        image_url="http://static.nautil.us/6748_dde16b86c64390f0af01275a44d3a42d.jpg",
+        link_url="https://nautil.us/issue/56/perspective/the-reality-of-color-is-perception-rp",
     )
     a15 = Article(
         user_id=1,
@@ -153,13 +153,13 @@ def seed_articles():
     )
     a16 = Article(
         user_id=1,
-        title="Announcing the Pantone Color of the Year 2021",
-        author="Pantone Color Institute",
-        source="pantone.com",
-        description="Pantone has published their anticipated Color of the Year. Two actually! The pair of colors--a cheery yellow and a sturdy gray--are said to reflect our quest for resilience and vitality as we overcome this time of uncertainty.",
-        quote="Emboldening the spirit, the pairing of PANTONE 17-5104 Ultimate Gray + PANTONE 13-0647 highlights our innate need to be seen, to be visible, to be recognized, to have our voices heard.",
-        image_url="https://www.pantone.com/media/catalog/product/f/h/fhiprp-color-of-the-year-2021-ultimate-gray-illuminating.jpg",
-        link_url="https://www.pantone.com/color-of-the-year-2021",
+        title="Inside the Library That Holds the World’s Rarest Colors",
+        author="Abigail Cain",
+        source="atsy.net",
+        description="This detailed history of the Forbes Pigment Collection at Harvard traces from the archive's inception in 1910 to its current research. With the over 2,500 specimens, scientists, historians, and curators use the collection to better understand the materials used to make art.",
+        quote="Historic it may be, but the Forbes Collection deals as much with the future of artworks as the past. It could almost be described as a conservator’s crystal ball: offering glimpses into the aging process for various pigments, binders, and any other materials that might make their way into a work of art.",
+        image_url="https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2FxXNUGxecMHnoC5PXKlaxGQ%252F20170913-artsy-harvard-pigment-0030.jpg&width=2000&quality=80",
+        link_url="https://www.artsy.net/article/artsy-editorial-inside-library-holds-worlds-rarest-colors",
     )
 
     all_articles = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16]

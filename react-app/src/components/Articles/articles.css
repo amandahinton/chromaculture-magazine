@@ -1,10 +1,13 @@
 
 /* ArticleAll Component */
 
+
 .article-grid {
     list-style-type: none;
     padding-inline-start: 0;
-    column-count: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* ArticleCard Component */
@@ -12,24 +15,16 @@
 .article-card {
     margin: 0px 15px 40px;
     width: 300px;
-    /* height: 700px; */
     border: 3px solid var(--blue);
     background-color: white;
-    -webkit-column-break-inside: avoid;
-          page-break-inside: avoid;
-               break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .article-card-image {
     width: 300px;
     height: 200px;
-}
-
-.article-card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
 }
 
 .article-card-title {
@@ -40,6 +35,7 @@
 
 .article-card-description {
     padding: 0 20px 10px;
+    flex-grow: 3;
 }
 
 /* ArticleModal Component */
@@ -66,24 +62,30 @@
     overflow: auto;
 }
 
+.modal-header {
+    /* background-color: purple; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.comments-link-on-modal {
+    margin: 30px 30px 10px;
+}
+
 .close-button-div {
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     height: 40px;
-    margin: 20px 30px 0;
+
 }
 
 .close-modal-x {
     font-size: 40px;
+    margin: 40px 30px 0;
     color: var(--yellow);
 }
 
-.comments-link-on-modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 /* ArticlePage Component */
 
@@ -142,7 +144,7 @@
     background-color: white;
     border: 3px solid var(--coral);
     padding: 0 40px 20px;
-    margin: 20px 30px;
+    margin: 20px 30px 30px;
 }
 
 .article-info{
@@ -270,9 +272,9 @@
         padding: 0 20px 20px;
     }
 
-    .close-button-div {
+    /* .close-button-div {
         margin-bottom: 10px;
-    }
+    } */
 
     .article-detail-quote-div {
         max-width: 310px;
@@ -293,12 +295,16 @@
         max-width: 350px;
     }
 
-    .article-image {
-        max-width: 284px;
+    .comments-link-on-modal {
+        margin: 20px 10px 10px;
     }
 
-    .close-button-div {
-        margin: 10px;
+    .close-modal-x {
+        margin: 20px 10px 0;
+    }
+
+    .article-image {
+        max-width: 284px;
     }
 
     .article-detail-quote-div {
@@ -317,7 +323,7 @@
         margin: 10px;
     }
 }
-
+/*
 @media all and (max-width: 1399px) {
     .article-grid {
         column-count: 3;
@@ -334,4 +340,4 @@
     .article-grid {
         column-count: 1;
     }
-}
+} */

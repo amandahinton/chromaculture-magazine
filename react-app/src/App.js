@@ -54,11 +54,11 @@ function App() {
                         </div>
                     </ProtectedRoute>
 
-                    <Route path='/articles/:articleId' exact={true} >
+                    <ProtectedRoute path='/articles/:articleId' exact={true} >
                         <div className="page-container">
                             <ArticlePage />
                         </div>
-                    </Route>
+                    </ProtectedRoute>
 
                     {/* <ProtectedRoute path='/users/:userId/articles' exact={true} >
                         <h1>User Articles</h1>
