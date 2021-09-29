@@ -1,14 +1,19 @@
+/* div {
+    border: red 1px solid;
+} */
+
 /* CommentsList Component */
 
 .comments-list-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 3px solid var(--coral);
+    /* justify-content: center; */
     margin: 20px 30px 30px 30px;
-    padding: 10px 40px 10px;
+    padding: 0px 40px 10px;
     width: 580px;
     box-sizing: border-box;
+
 }
 
 .comments-list-title {
@@ -17,7 +22,7 @@
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-top: 50px;
+    margin-top: 0;
 }
 
 .article-page-comment-form-div {
@@ -30,106 +35,121 @@
     padding-inline-start: 0;
     margin-block-start: 0;
     margin-block-end: 0;
-    padding: 20px 40px;
+    padding: 0px 40px 20px;
 }
 
 
 /* SingleComment Component */
 
-.single-comment-container{
-
-}
-
-
 .comments-list-item {
-    margin-bottom: 10px;
+    border-bottom: 2px solid var(--coral);
+    padding: 20px 0;
+    margin: 10px auto 10px;
     list-style: none;
     padding-inline-start: 0;
-    background-color: purple;
 }
 
-
 .edit-comment-div {
-    background-color: yellow;
+    border-bottom: 2px solid var(--coral);
+    padding: 20px 0;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-comment-errors {
+    color: var(--coral);
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .edit-comment-form-div {
-
+    display: flex;
+    width: 500px;
 }
 
-.edit-comment-confirm-button {
-
+.edit-comment-buttons-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 74px;
 }
 
-.edit-comment-check {
-
+.edit-comment-confirm-button, .edit-comment-cancel-button  {
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+    padding: 0;
+    font-size: 30px;
+    color: var(--pink);
 }
 
-.edit-comment-cancel-button {
-
-}
-
-.edit-comment-x {
-
-}
-
-.comments-list-item {
-
+.edit-comment-confirm-button:hover:enabled {
+    background-color: var(--white);
+    color: var(--pink);
 }
 
 .comment-content {
-
+    font-size: 18px;
 }
 
 .comment-author {
-
+    padding: 5px 0 5px 50px;
 }
 
 .comment-change-div {
-
+    padding: 5px 0 5px 50px;
 }
 
-.fa-pencil-alt {
-
+.fa-pencil-alt, .fa-trash-alt {
+    font-size: 20px;
+    color: var(--coral);
+    margin-left: 10px;
 }
-
-.fa-trash-alt {
-
-}
-
 
 /* CommentForm Component */
 
 .comment-form-div {
-    width: 494px;
+    width: 500px;
     display: flex;
+    border-bottom: 2px solid var(--coral);
+    padding: 20px 0 30px;
 }
 
 .comment-field {
     box-sizing: border-box;
-    width: 500px;
+    width: 427px;
+    height: 100%;
+}
+
+.comment-field::placeholder {
+    color: var(--coral);
+    font-size: 14px;
 }
 
 .comment-submit-button {
-    background-color: var(--pink);
+    background-color: transparent;
     border: none;
     margin-left: 10px;
-    padding: 10px;
-}
-
-.comment-submit-button:hover {
-    background-color: var(--white);
-}
-
-.comment-submit-icon {
-    color: var(--yellow);
+    padding: 3px 10px 0;
     font-size: 40px;
-}
-
-.fa-comment:hover {
     color: var(--pink);
 }
 
+.comment-submit-button[disabled] {
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+    padding: 3px 10px 0;
+    font-size: 40px;
+    color: var(--yellow);
+}
+
+.comment-submit-button:hover:enabled {
+    background-color: var(--yellow);
+    color: var(--pink);
+}
 
 
 /* DeleteComment Component */
@@ -138,15 +158,36 @@
     background-color: white;
     padding: 10px 30px 20px;
     border: 20px solid var(--coral)
-
-}
-
-.delete-verify-text {
-    color: blue;
 }
 
 .delete-verify-buttons-div {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+/* RESPONSIVE */
+
+@media all and (max-width: 659px) {
+
+    .article-page-comment-div, .article-page-comment-form-div, .edit-comment-div, .edit-comment-form-div, .comment-form-div, .comments-list, .comments-list-item, .edit-comment-div {
+        width: 330px;
+        overflow: auto;
+    }
+
+    .comments-list-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .comment-field {
+        width: 250px;
+        height: 100%;
+    }
+
+    .comments-list {
+        padding: 0;
+    }
+
 }

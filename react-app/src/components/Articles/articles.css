@@ -1,3 +1,4 @@
+
 /* ArticleAll Component */
 
 .article-grid {
@@ -96,33 +97,40 @@
 }
 
 .article-controls-div {
+    width: 600px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin: 30px 0 0;
+    justify-content: space-between;
+    margin: 30px 0;
 }
 
 .article-previous-div {
-    margin: 0 83px 30px 0;
+    margin:10px;
 }
 
 .article-next-div {
-    margin: 0 0 30px 83px;
+    margin:10px;
 }
 
 .article-page-content-div {
     display: flex;
     flex-wrap: wrap;
+    /* align-items: center; */
     justify-content: center;
 }
 
 .article-page-article-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 640px;
     box-sizing: border-box;
 }
 
 .article-page-comment-div {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
     width: 640px;
     box-sizing: border-box;
 }
@@ -192,8 +200,6 @@
 
 .article-quote {
     grid-column-start: 2;
-    /* margin-block-start: 0;
-    margin-block-end: 0; */
     font-style: italic;
     font-size: 16px;
     letter-spacing: .5px;
@@ -236,10 +242,24 @@
 
 /* RESPONSIVE */
 
-@media all and (max-width: 649px) {
-    .article-modal-container {
+@media all and (max-width: 659px) {
+
+    .article-modal-container, .article-content-container, .article-page-container, .article-page-comment-div, .article-page-article-div, .article-controls-div, .comments-list-container {
         max-width: 400px;
         overflow: auto;
+    }
+
+    .article-controls-div {
+        justify-content: space-evenly;
+    }
+
+    .comments-list-container div {
+        max-width: 400px;
+        overflow: auto;
+    }
+
+    .article-page-article-div, .article-page-comment-div{
+        margin: 0;
     }
 
     .article-image {
@@ -265,12 +285,16 @@
 }
 
 @media all and (max-width: 449px) {
-    .article-modal-container {
-        max-width: 300px;
+    .article-content-container, .comments-list-container {
+        margin: 20px 0;
+    }
+
+    .article-modal-container, .article-content-container, .article-page-article-div, .article-page-content-div,.article-page-comment-div, .comments-list-container, .article-page-comment-form-div {
+        max-width: 350px;
     }
 
     .article-image {
-        max-width: 200px;
+        max-width: 284px;
     }
 
     .close-button-div {

@@ -51,6 +51,7 @@ const CommentForm = () => {
                 placeholder="comment must be 1-500 characters in length"
                 name="content"
                 value={content}
+                rows="3"
                 onChange={(e) => setContent(e.target.value)}
             />
             <button
