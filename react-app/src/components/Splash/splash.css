@@ -15,10 +15,28 @@
     margin: 75px 100px 20px;
 }
 
-
 .splash-subtitle {
     margin: 0 100px 30px;
     font-size: 24px;
     letter-spacing: .3px;
     word-spacing: 3px;
+}
+
+.splash-image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+}
+
+.splash-image {
+    max-height: 300px;
+}
+
+.splash-description {
+    margin: 30px 0;
+    font-size: 18px;
+    line-height: 1.5;
+    width: 88%
 }

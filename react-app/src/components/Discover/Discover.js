@@ -17,7 +17,7 @@ function Discover() {
     return (
         <div className="discover-container">
             <div className="discover-article-intro">
-                <p>Chromaculture is a digital magazine with an inspiring collection of stories from around the web about palettes, pigments, and projects that are color-related. We blend color theory, art history, industry information, and pop culture in a way that is modern, informative, provocative, and playful. </p>
+            <p>Chromaculture is for artists, designers, and those obsessed with all things color! Stop by to see the latest articles we've gathered, bookmark your favorites, and join us in the comments section.</p>
             </div>
             <div className="discover-article-div">
                 <h2 className="discover-article-title">browse articles</h2>
