@@ -16,7 +16,7 @@ const LoginForm = () => {
     const demoLogin = (e) => {
         e.preventDefault();
         dispatch(login("demo@aa.io", "password"));
-        history.push("/users/2");
+        history.push("/discover");
     };
 
     const onLogin = async (e) => {
