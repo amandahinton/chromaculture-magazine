@@ -1,6 +1,4 @@
-
 /* ArticleAll Component */
-
 
 .article-grid {
     list-style-type: none;
@@ -9,6 +7,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
 
 /* ArticleCard Component */
 
@@ -38,6 +37,7 @@
     flex-grow: 3;
 }
 
+
 /* ArticleModal Component */
 
 .article-detail-button {
@@ -63,7 +63,6 @@
 }
 
 .modal-header {
-    /* background-color: purple; */
     display: flex;
     justify-content: space-between;
 }
@@ -116,7 +115,6 @@
 .article-page-content-div {
     display: flex;
     flex-wrap: wrap;
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -130,7 +128,6 @@
 
 .article-page-comment-div {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     width: 640px;
     box-sizing: border-box;
@@ -271,10 +268,6 @@
         padding: 0 20px 20px;
     }
 
-    /* .close-button-div {
-        margin-bottom: 10px;
-    } */
-
     .article-detail-quote-div {
         max-width: 310px;
     }
@@ -322,21 +315,4 @@
         margin: 10px;
     }
 }
-/*
-@media all and (max-width: 1399px) {
-    .article-grid {
-        column-count: 3;
-    }
-}
 
-@media all and (max-width: 1049px) {
-    .article-grid {
-        column-count: 2;
-    }
-}
-
-@media all and (max-width: 699px) {
-    .article-grid {
-        column-count: 1;
-    }
-} */

@@ -1,7 +1,3 @@
-/* div {
-    border: red 1px solid;
-} */
-
 /* CommentsList Component */
 
 .comments-list-container {
@@ -107,6 +103,7 @@
     color: var(--coral);
     margin-left: 10px;
 }
+
 
 /* CommentForm Component */
 
