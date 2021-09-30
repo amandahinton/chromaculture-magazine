@@ -18,7 +18,7 @@ function Splash( {articles} ) {
     return (
         <div className="splash-container">
 
-            <NavLink exact to="/articles/16" className="splash-main-feature-div">
+            {/* <NavLink exact to="/articles/16" className="splash-main-feature-div"> */}
             <div className="main-feature-detail-text">
                     <h3 className="main-feature-title">{articles[15].title}</h3>
                     <p className="main-feature-byline">{articles[15].author}  |  {articles[15].source}</p>
@@ -27,7 +27,7 @@ function Splash( {articles} ) {
                     </div>
                 </div>
 
-            </NavLink>
+            {/* </NavLink> */}
 
             <div className="splash-highlight-div">
                 <NavLink exact to="/articles/15" className="splash-highlight-one">

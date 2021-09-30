@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getAllArticles } from '../../../store/articles';
 import ArticleContent from'../ArticleContent.js'
 import "../articles.css"
@@ -7,6 +8,8 @@ import "../articles.css"
 const ArticleDetail = ({article, setShowArticleModal}) => {
 
     const dispatch = useDispatch()
+
+    const user = useSelector(state => state?.session.user)
 
     useEffect(() => {
         dispatch(getAllArticles())
@@ -22,9 +25,9 @@ const ArticleDetail = ({article, setShowArticleModal}) => {
         return (
             <div className="modal-wrapper-div article-modal-container">
                 <div className="modal-header">
-                    <div className="comments-link-on-modal">
+                    {user ? <div className="comments-link-on-modal">
                         <a href={articlePage} className="secondary-link-as-button">comments <i className="fas fa-comment"></i></a>
-                    </div>
+                    </div> : <div className="comments-link-on-modal"></div>}
                     <div className="close-button-div">
                         <i onClick={closeOverlay} className="fas fa-window-close close-modal-x"></i>
                     </div>
