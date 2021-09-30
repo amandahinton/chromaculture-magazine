@@ -19,7 +19,8 @@ const CommentForm = () => {
 
     useEffect(() => {
         const errors = [];
-        if (content.length < 1 || content.length > 500) errors.push("comment must be 1-500 characters in length")
+        let trimContent = content.trim()
+        if (trimContent.length < 1 || trimContent.length > 500) errors.push("comment must be 1-500 characters in length")
         setValidationErrors(errors)
     }, [content])
 
@@ -33,7 +34,7 @@ const CommentForm = () => {
         const payload = {
             userId,
             articleId,
-            content
+            content:content.trim()
         }
 
         let newComment = await dispatch(createComment(payload))

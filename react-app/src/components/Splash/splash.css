@@ -1,4 +1,13 @@
-.splash-div {
+/* INTRO TEXT */
+
+.splash-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash-text {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,8 +44,107 @@
 }
 
 .splash-description {
-    margin: 30px 0;
+    margin-bottom: 30px;
     font-size: 18px;
     line-height: 1.5;
     width: 88%
+}
+
+/* FEATURE ARTICLE */
+
+.splash-main-feature-div {
+    background-image: url('https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2FxXNUGxecMHnoC5PXKlaxGQ%252F20170913-artsy-harvard-pigment-0030.jpg&width=2000&quality=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40%;
+    height: 600px;
+}
+
+.main-feature-detail-text {
+    background-color: black;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 0 20px 20px;
+    color: white;
+    justify-content: center;
+    position: relative;
+    top: 60%;
+
+
+}
+.main-feature-title {
+    margin-left: 10px;
+}
+
+.main-feature-byline {
+    margin-left: 10px;
+}
+
+
+/* TWO ARTICLE HIGHLIGHT */
+
+.splash-highlight-div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    margin:
+}
+
+.splash-highlight-image {
+    width: 400px;
+    height: 300px;
+}
+
+.splash-article-highlight-one, .splash-article-highlight-two {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+    width: 400px;
+    height: 300px;
+    padding: 20px;
+    color: white;
+}
+
+.splash-article-highlight-one {
+    background-color: var(--pink);
+}
+
+.splash-article-highlight-two {
+    background-color: var(--coral);
+    color: white;
+}
+
+.splash-highlight-title {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+}
+
+.splash-highlight-description {
+    font-size: 16px;
+    word-spacing: 0.05em;
+
+}
+
+
+.splash-highlight-byline {
+    margin: 20px 0;
+    color: var(--yellow)
+}
+
+
+.splash-cards-div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash-cards-div li {
+    height: 525px;
+    border: var(--blue) solid 10px;
 }
