@@ -7,12 +7,12 @@ def seed_notes():
         content="Remember to order this book. I really enjoyed Baty's book The Anatomy of Colour: The Story of Heritage Paints and Pigments."
     )
     n2 = Note(
-        article_id=1,
+        article_id=12,
         user_id=2,
         content='tweet this one'
     )
     n3 = Note(
-        article_id=16,
+        article_id=7,
         user_id=2,
         content='email to mom'
     )
@@ -22,7 +22,7 @@ def seed_notes():
         content="There's a link at the bottom for a follow-up article with more pigments"
     )
     n5 = Note(
-        article_id=7,
+        article_id=1,
         user_id=2,
         content="Reddy-greeny? I'm not sure how this works and doesn't look brown. I wonder if I could see these or if it would be like those stupid Magic Eyes where I could never find the sailboat?!"
     )

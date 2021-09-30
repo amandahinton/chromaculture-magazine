@@ -1,134 +1,281 @@
-# Flask React Project
 
-This is the starter for the Flask React project.
+![](https://github.com/amandahinton/chromaculture/blob/main/react-app/src/images/chromaculture-05.png)
 
-## Getting started
+Chromaculture is a digital magazine for about color. The inspiring collection of stories from around the web about palettes, pigments, and color-related projects will take you to surprising places in the spectrum! Chromaculture blends color theory, science, art history, industry information, and pop culture in a way that is modern, informative, provocative, and playful.
 
-1. Clone this repository (only this branch)
+### Chromaculture can be found at: https://chromaculture.herokuapp.com/
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+# Features
+* Users
+  * User signup, login/logout authentication, and authorization to perform operations throughout the site
+  * Password hashing and protection from csurf attacks
+  * Demo account for testing functionality
+* Articles
+  * Visitors can browse all articles through the Discover feed grid or the splash page features
+  * Article preview modals link to the internal article detail with comments and previous/next article browsing as well as to the external full article
+* Bookmarks
+  * Logged-in users can save articles to their profile by clicking the bookmark icon on the article preview modal or the article detail page
+  * Clicking again will remove the article from the user's profile
+* Comments
+  * Logged-in users can view all comments on all articles
+  * Logged-in users can add, edit, or delete their own comments
 
-2. Install dependencies
+# Roadmap
+* Articles
+  * Users will be able to add articles
+  * Users will be able to edit and delete their own articles
+  * Articles added by an editor will be displayed on the Discover feed
+  * Articles added by users will be bookmarked to their user page
+* Notes
+  * Users can add marginalia; these notes are private the user
+  * Users can edit and delete their notes
+* Search
+* New content
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+### You can see the feature list, user stories, database schema, and more on the project wiki at: https://github.com/amandahinton/chromaculture/wiki
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+# Technologies Used
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+Frontend
+  * React
+  * Redux
+  * Javascript
+  * HTML
+  * CSS
 
+Backend
+  * Python
+  * Flask
+  * SQLAlchemy
+  * Node.js
+
+Database
+  * PostgreSQL
+
+Deployment and Version Control
+  * Git + Github
+  * Heroku
+  * Docker
+
+
+# Database Structure
+![](https://github.com/amandahinton/chromaculture/blob/main/design/database_schema.png)
+
+# Brand and wireframes
+![](https://github.com/amandahinton/chromaculture/blob/main/design/styles.png)
+
+
+# Screenshots
+![](https://github.com/amandahinton/chromaculture/blob/main/design/screenshots/splash.png)
+![](https://github.com/amandahinton/chromaculture/blob/main/design/screenshots/discover.png)
+![](https://github.com/amandahinton/chromaculture/blob/main/design/screenshots/article_preview.png)
+![](https://github.com/amandahinton/chromaculture/blob/main/design/screenshots/comments.png)
+
+# Code Highlights
+Bookmark thunks and backend api routes
+```js
+export const getUserBookmarks = (userId) => async dispatch => {
+    const response = await fetch(`/api/users/${userId}/bookmarks`)
+
+    if (response.ok) {
+        const bookmarks = await response.json().then(res => res = res.bookmarks)
+        dispatch(viewUserBookmarks(bookmarks))
+    }
+}
+
+
+export const postUserBookmark = ({ user_id, article_id }) => async dispatch => {
+    const data = new FormData()
+    data.append("user_id", user_id)
+    data.append("article_id", article_id)
+
+    const res = await fetch(`/api/articles/${article_id}/bookmarks`,
+        {
+            method: 'POST',
+            body: data
+        });
+
+    if (res.ok) return
+}
+```
+
+``` py
+@user_routes.route('/<int:userId>/bookmarks')
+@login_required
+def get_user_bookmarks(userId):
+    articles_bookmarked = []
+    bookmarks = db.session.query(Bookmark).join(Article) \
+        .filter(Bookmark.article_id == Article.id) \
+        .filter(Bookmark.user_id == userId).all()
+    for bookmark in bookmarks:
+        saves = Bookmark.query.filter(Bookmark.article_id == bookmark.article_id).all()
+        saver_list = [save.user_id for save in saves]
+        articles_bookmarked.append(bookmark.to_dict(saver_list))
+
+    return {'bookmarks': articles_bookmarked}
+
+
+@article_routes.route('/<int:articleId>/bookmarks', methods=["POST"])
+@login_required
+def add_bookmark(articleId):
+    user_id = request.form['user_id']
+    new_bookmark = Bookmark(
+        user_id=user_id,
+        article_id=articleId
+    )
+    db.session.add(new_bookmark)
+    db.session.commit()
+    saves = Bookmark.query.filter(Bookmark.article_id == new_bookmark.article_id).all()
+    saver_list = [save.user_id for save in saves]
+    return new_bookmark.to_dict(saver_list)
+
+```
+
+
+JSX flow through the components related to articles
+``` js
+// DISCOVER
+return (
+      <div className="discover-container">
+         <div className="discover-article-intro">
+         <p>Chromaculture is for artists, designers, and those obsessed with all things color! Stop by to see the latest articles we've gathered, and log in to bookmark your favorites and join us in the comments section.</p>
+         </div>
+         <div className="discover-article-div">
+               <h2 className="discover-article-title">browse articles</h2>
+               <ArticleAll articles={articles} />
+         </div>
+      </div>
+);
+
+// ARTICLE ALL
+return (
+      <ul className="article-grid">
+         {articles && articles?.map((article) => {
+               return <ArticleCard key={article.id} article={article} showArticleModal={showArticleModal} setShowArticleModal={setShowArticleModal} />;
+         })}
+      </ul>
+)
+// ARTICLE CARD
+return (
+        <li className="article-card">
+            <img className="article-card-image" src={article.image_url} alt="article preview" />
+            <h3 className="article-card-title">{article.title}</h3>
+            <p className="article-card-description">{article.description}</p>
+            <div className="article-card-modal-button">
+                <ArticleDetailModal article={article} showArticleModal={showArticleModal} setShowArticleModal={setShowArticleModal} />
+            </div>
+        </li>
+);
+
+ // ARTICLE DETAIL MODAL
+return (
+    <>
+        <button
+            className="article-detail-button"
+            onClick={() => setShowArticleModal(article)}>
+            read more
+        </button>
+        {showArticleModal && showArticleModal?.id === article?.id && (
+        <Modal onClose={() => {
+            setShowArticleModal(null);
+        }}>
+            <ArticleDetail article={article} setShowArticleModal={setShowArticleModal} />
+        </Modal>
+      )}
+    </>
+);
+
+// ARTICLE DETAIL
+if (article) {
+        return (
+            <div className="modal-wrapper-div article-modal-container">
+                <div className="modal-header">
+                    <div className="comments-link-on-modal">
+                        <a href={articlePage} className="secondary-link-as-button">comments <i className="fas fa-comment"></i></a>
+                    </div>
+                    <div className="close-button-div">
+                        <i onClick={closeOverlay} className="fas fa-window-close close-modal-x"></i>
+                    </div>
+                </div>
+
+                <ArticleContent article={article} />
+            </div>
+        );
+} else {
+        return null
+}
+
+// ARTICLE CONTENT
+if (article) {
+      return (
+         <div className="article-content-container">
+               <div className="bookmark-div">
+                  {bookmarkIcon}
+               </div>
+               <div className="article-info">
+                  <h1 className="article-title">{article.title}</h1>
+                  <img className="article-image" src={article.image_url} alt="article preview" />
+                  <p className="article-author">{article.author}</p>
+                  <p className="article-source">{article.source}</p>
+                  <p className="article-savers">{(article.saver_list).length} bookmarked</p>
+                  <p className="article-description">{article.description}</p>
+
+                  <div className="article-quote-div">
+                     <i className="fas fa-quote-left"></i>
+                     <p className="article-quote">{article.quote}</p>
+                     <i className="fas fa-quote-right"></i>
+                  </div>
+
+                  <a href={article.link_url} className="primary-link-as-button" target={"_blank"} rel={"noreferrer"}>full article <i className="fas fa-arrow-right"></i></a>
+               </div>
+
+         </div>
+      );
+   } else {
+      return null
+   }
+
+````
+
+
+# Conclusion
+The Chromaculture app is painstakingly styled to present the curated content in a beautiful, responsive, and engaging way. The text throughout the app is real with thoughtful overviews and pull quotes from each article. I look forward to maintaining the app and adding new color stories, and I hope that users enjoy the vibrant theme and fascinating topic.
+
+
+# Developer notes
+
+Start application
    ```bash
    pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
    flask run
    ```
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+   ```bash
+   npm start
+   ```
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+Install dependencies
+   ```bash
+   pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+   ```
+* psycopg2-binary MUST remain a dev dependency can't install it on apline-linux (layer in the Dockerfile that will install (not binary) psycopg2
 
+
+After adding new python dependencies to pipfiles, regenerate requirements.txt before deployment
    ```bash
    pipenv lock -r > requirements.txt
    ```
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
-
+Local database
    ```bash
-   pipenv lock -r > requirements.txt
+   pipenv shell
+   flask db upgrade
+   flask seed all
    ```
 
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
-
+Heroku database
    ```bash
    heroku login
-   ```
-
-6. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. Release your docker container to heroku
-
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
+   heroku run -a chromaculture flask db upgrade
+   heroku run -a chromacultureflask seed all
    ```

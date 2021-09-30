@@ -54,6 +54,7 @@ a {
     }
 }
 
+
 /* BUTTONS */
 
 .primary-button, .secondary-button {
@@ -119,8 +120,8 @@ a {
     border: 2px solid var(--yellow);
 }
 
-/* FORMS */
 
+/* FORMS */
 
 .form-div {
     box-sizing: border-box;

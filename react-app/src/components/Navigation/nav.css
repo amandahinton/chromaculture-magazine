@@ -3,9 +3,6 @@
 nav {
     height: 100px;
     background-color: black;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
 }
 
 .nav-container {
@@ -100,6 +97,7 @@ nav {
     margin-block-start: 0;
     margin-block-end: 0;
 }
+
 
 /* RESPONSIVE */
 

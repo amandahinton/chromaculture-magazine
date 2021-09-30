@@ -2,27 +2,27 @@ from app.models import db, Comment
 
 def seed_comments():
     c1 = Comment(
-        article_id=1,
+        article_id=16,
         user_id=2,
         content='Top 5 bucket-list destinations. 🌈'
     )
     c2 = Comment(
-        article_id=1,
+        article_id=16,
         user_id=4,
         content='fascinating collection'
     )
     c3 = Comment(
-        article_id=1,
+        article_id=16,
         user_id=3,
         content='I had never heard of this place'
     )
     c4 = Comment(
-        article_id=2,
+        article_id=1,
         user_id=4,
         content='eyeballs and brains are super weird!'
     )
     c5 = Comment(
-        article_id=3,
+        article_id=14,
         user_id=3,
         content='Fun read about my favorite philosophical debate'
     )
@@ -82,7 +82,7 @@ def seed_comments():
         content="orange is underrated 🧡"
     )
     c15 = Comment(
-        article_id=14,
+        article_id=2,
         user_id=4,
         content="found this hard to follow, good ideas but jumped around"
     )
@@ -92,12 +92,12 @@ def seed_comments():
         content="Helpful and practical! Thanks for the insightful find - I'm going to apply this at work."
     )
     c17 = Comment(
-        article_id=16,
+        article_id=3,
         user_id=2,
         content='Gray?! I do not need more gray, thanks.'
     )
     c18 = Comment(
-        article_id=16,
+        article_id=3,
         user_id=4,
         content='depressing'
     )

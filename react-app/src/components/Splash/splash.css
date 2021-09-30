@@ -64,7 +64,6 @@
 }
 
 
-
 /* FEATURE ARTICLE */
 
 .splash-main-feature-div {
@@ -101,6 +100,7 @@
 .main-feature-modal-button {
     margin-top: 10px;
 }
+
 
 /* TWO ARTICLE HIGHLIGHT */
 
@@ -147,7 +147,6 @@
     word-spacing: 0.05em;
 }
 
-
 .splash-highlight-byline {
     margin: 20px 0;
     color: var(--yellow)
@@ -167,7 +166,6 @@
 
 .splash-cards-duo {
     display: flex;
-    /* flex-wrap: wrap; */
     align-items: center;
     justify-content: center;
     padding: 0;
@@ -187,12 +185,10 @@
     box-sizing: border-box;
     height: 480px;
     width: 400px;
-    /* border: black solid 3px; */
     border: none;
     margin: 0;
     padding: 0;
 }
-
 
 .splash-cards-div li img {
     width: 400px;
@@ -218,12 +214,7 @@
 }
 
 @media all and (max-width: 799px) {
-    .splash-container {
-        /* margin: 0; */
-        width: 400px;
-    }
-
-    .splash-description-div, .splash-main-feature-div {
+    .splash-container, .splash-description-div, .splash-main-feature-div {
         width: 400px;
     }
 
