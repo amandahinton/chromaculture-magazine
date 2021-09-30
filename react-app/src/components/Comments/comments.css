@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     margin: 20px 30px 30px 30px;
     padding: 0px 40px 10px;
     width: 580px;
@@ -45,7 +44,7 @@
     padding-inline-start: 0;
 }
 
-.edit-comment-div {
+.edit-comment-container {
     border-bottom: 2px solid var(--coral);
     padding: 20px 0;
     width: 500px;
@@ -54,14 +53,14 @@
 }
 
 .edit-comment-errors {
-    color: var(--coral);
-    font-size: 16px;
-    margin-bottom: 10px;
+    color: var(--pink);
+    font-size: 14px;
 }
 
 .edit-comment-form-div {
     display: flex;
     width: 500px;
+    margin: 0 0 10px;
 }
 
 .edit-comment-buttons-div {
@@ -104,14 +103,22 @@
     margin-left: 10px;
 }
 
-
 /* CommentForm Component */
+
+.comment-form-container {
+    border-bottom: 2px solid var(--coral);
+    padding: 0 0 20px;
+}
+
+.comment-errors {
+    color: var(--pink);
+    font-size: 14px;
+}
 
 .comment-form-div {
     width: 500px;
     display: flex;
-    border-bottom: 2px solid var(--coral);
-    padding: 20px 0 30px;
+    padding: 20px 0 10px;
 }
 
 .comment-field {
@@ -122,7 +129,7 @@
 
 .comment-field::placeholder {
     color: var(--coral);
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .comment-submit-button {
@@ -146,6 +153,7 @@
 .comment-submit-button:hover:enabled {
     background-color: var(--yellow);
     color: var(--pink);
+    cursor: pointer;
 }
 
 
@@ -176,6 +184,10 @@
     .comments-list-container {
         padding: 0;
         margin: 0;
+    }
+
+    .comment-field::placeholder {
+        font-size: 14px;
     }
 
     .comment-field {

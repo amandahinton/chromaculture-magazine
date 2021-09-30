@@ -46,24 +46,29 @@ const CommentForm = () => {
     }
 
     return (
-        <form className="comment-form-div" onSubmit={handleSubmit}>
-            <textarea
-                className='comment-field'
-                placeholder="comment must be 1-500 characters in length"
-                name="content"
-                value={content}
-                rows="3"
-                onChange={(e) => setContent(e.target.value)}
-            />
-            <button
-                className='comment-submit-button'
-                type="submit"
-                disabled={validationErrors.length > 0}
-            >
-                <i className="fas fa-comment comment-submit-icon"></i>
-            </button>
+        <div className="comment-form-container">
+            <form className="comment-form-div" onSubmit={handleSubmit}>
+                <textarea
+                    className='comment-field'
+                    placeholder="What did you think?"
+                    name="content"
+                    value={content}
+                    rows="3"
+                    onChange={(e) => setContent(e.target.value)}
+                />
+                <button
+                    className='comment-submit-button'
+                    type="submit"
+                    disabled={validationErrors.length > 0}
+                >
+                    <i className="fas fa-comment comment-submit-icon"></i>
+                </button>
+            </form>
+            <div className="comment-errors">
+                {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
+            </div>
 
-        </form>
+        </div>
     )
 }
 
