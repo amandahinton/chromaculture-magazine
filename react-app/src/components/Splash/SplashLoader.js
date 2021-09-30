@@ -16,13 +16,10 @@ function SplashLoader() {
     if (articles.length) {
         return (
             <Splash articles={articles} />
-
         )
     } else {
         return null;
     }
-
-
 }
 
 export default SplashLoader;

@@ -22,7 +22,7 @@ const ArticleContent = ({article}) => {
 
     // if bookmark icon is clicked (shows full after click)
     const handleSave = async () => {
-        await dispatch(postUserBookmark({ "user_id": user.id, "article_id": article.id }))
+        await postUserBookmark({ "user_id": user.id, "article_id": article.id })
         await dispatch(getUserBookmarks(user.id))
         await dispatch(getAllArticles())
         return

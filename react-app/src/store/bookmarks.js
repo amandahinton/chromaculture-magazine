@@ -1,16 +1,10 @@
 const VIEW_USER_BOOKMARKS = 'bookmarks/VIEW_USER_BOOKMARKS'
-const SAVE_USER_BOOKMARKS = 'bookmarks/SAVE_USER_BOOKMARKS'
 const UNSAVE_USER_BOOKMARK = 'bookmarks/UNSAVE_USER_BOOKMARK'
 
 const viewUserBookmarks = (bookmarks) => ({
     type: VIEW_USER_BOOKMARKS,
     bookmarks
 })
-
-// const saveUserBookmarks = (bookmarks) => ({
-//     type: SAVE_USER_BOOKMARKS,
-//     bookmarks
-// })
 
 const unsaveUserBookmark = (bookmark) => ({
     type: UNSAVE_USER_BOOKMARK,
@@ -26,7 +20,7 @@ export const getUserBookmarks = (userId) => async dispatch => {
     }
 }
 
-export const postUserBookmark = ({ user_id, article_id }) => async dispatch => {
+export const postUserBookmark = async ({ user_id, article_id }) => {
     const data = new FormData()
     data.append("user_id", user_id)
     data.append("article_id", article_id)
@@ -62,15 +56,6 @@ const bookmarkReducer = (state= initialState, action) => {
                 newState[bookmark.id] = bookmark
             })
             return newState
-
-        case SAVE_USER_BOOKMARKS: {
-            const newState = {}
-            const saves = action.bookmarks
-            saves.forEach(bookmark => {
-                newState[bookmark.id] = bookmark
-            })
-            return newState
-        }
 
         case UNSAVE_USER_BOOKMARK: {
             const newState = { ...state }

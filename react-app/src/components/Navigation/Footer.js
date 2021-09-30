@@ -15,9 +15,6 @@ function Footer() {
             <a href="https://www.linkedin.com/in/amandahinton/" target={"_blank"} rel={"noreferrer"}> <i className="fab fa-linkedin footer-icon"></i> </a>
             </div>
 
-
-
-
             <p className="footer-copyright">Copyright ©2021 All Rights Reserved</p>
         </div>
     );

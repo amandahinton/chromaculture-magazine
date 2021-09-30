@@ -50,7 +50,6 @@ function SingleComment({comment}) {
         setValidationErrors(errors)
     }, [updatedComment])
 
-
     if (userId === comment.user_id) {
         if (showEdit) {
             return (
@@ -109,9 +108,7 @@ function SingleComment({comment}) {
                 <p className="comment-author">- {comment.user.username}</p>
             </li>
         );
-
     }
-
 };
 
 export default SingleComment;

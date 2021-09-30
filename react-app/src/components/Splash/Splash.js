@@ -6,7 +6,6 @@ import "./splash.css"
 
 function Splash( {articles} ) {
 
-
     const [showArticleModal, setShowArticleModal] = useState(null);
     useEffect(() => {
         if (showArticleModal && articles.some((article) => article.id ===showArticleModal.id)) {
@@ -15,7 +14,6 @@ function Splash( {articles} ) {
           document.querySelector("body").style.overflow = 'visible';
         }
       }, [articles, showArticleModal]);
-
 
     return (
         <div className="splash-container">
@@ -53,7 +51,7 @@ function Splash( {articles} ) {
             <div className="splash-description-div">
                 <h1 className="splash-title">Welcome to Chromaculture!</h1>
                 <h2 className="splash-subtitle">The Digital Magazine for Color Lovers</h2>
-                <p className="splash-description">Our inspiring collection of stories from around the web about palettes, pigments, and color-related projects will take you to surprising places in the spectrum! Chromaculture blends color theory, science, art history, industry information, and pop culture in a way that is modern, informative, provocative, and playful.</p>
+                <p className="splash-description">Our inspiring collection of stories from around the web about palettes, pigments, and color-related projects will take you to surprising places in the spectrum. Chromaculture blends color theory, science, art history, industry information, and pop culture in a way that is modern, informative, provocative, and playful.</p>
             </div>
 
             <div className="splash-cards-container">
@@ -92,9 +90,6 @@ function Splash( {articles} ) {
             </div>
         </div>
     );
-
-
-
 }
 
 export default Splash;
