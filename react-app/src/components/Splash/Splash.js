@@ -18,7 +18,7 @@ function Splash( {articles} ) {
     return (
         <div className="splash-container">
 
-            {/* <NavLink exact to="/articles/16" className="splash-main-feature-div"> */}
+            <div className="splash-main-feature-div">
             <div className="main-feature-detail-text">
                     <h3 className="main-feature-title">{articles[15].title}</h3>
                     <p className="main-feature-byline">{articles[15].author}  |  {articles[15].source}</p>
@@ -26,26 +26,31 @@ function Splash( {articles} ) {
                         <ArticleDetailModal article={articles[15]} showArticleModal={showArticleModal} setShowArticleModal={setShowArticleModal} />
                     </div>
                 </div>
-
-            {/* </NavLink> */}
+            </div>
 
             <div className="splash-highlight-div">
-                <NavLink exact to="/articles/15" className="splash-highlight-one">
+
+                <div onClick={() => setShowArticleModal(articles[14])} className="splash-highlight-one clickable-div">
                     <h3 className="splash-highlight-title">{articles[14].title}</h3>
                     <p className="splash-highlight-byline">{articles[14].author}  |  {articles[14].source}</p>
                     <p className="splash-highlight-description">{articles[14].description}</p>
-                </NavLink>
+                </div>
+                <ArticleDetailModal hideButton={true} article={articles[14]} showArticleModal={showArticleModal} setShowArticleModal={setShowArticleModal} />
+
 
                 <img className="splash-highlight-image" src="https://images.unsplash.com/photo-1502691876148-a84978e59af8" alt="colorful walkway" />
 
                 <img className="splash-highlight-image" src="https://images.unsplash.com/photo-1600832331197-ad575931911b" alt="fanned pantone cards" />
 
-                <NavLink exact to="/articles/1" className="splash-highlight-two">
+                <div onClick={() => setShowArticleModal(articles[0])}  className="splash-highlight-two clickable-div">
                     <h3 className="splash-highlight-title">{articles[0].title}</h3>
                     <p className="splash-highlight-byline">{articles[0].author}  |  {articles[0].source}</p>
                     <p className="splash-highlight-description">{articles[0].description}</p>
                     <p className="splash-highlight-source"></p>
-                </NavLink>
+                </div>
+                <ArticleDetailModal hideButton={true} article={articles[0]} showArticleModal={showArticleModal} setShowArticleModal={setShowArticleModal} />
+
+
             </div>
 
             <div className="splash-description-div">
