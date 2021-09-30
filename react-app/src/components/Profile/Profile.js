@@ -39,7 +39,7 @@ function Profile() {
             <div className="new-user-div">
                 <h1 className="new-user-title">We love hue!</h1>
                 <h2 className="new-user-instructions">Welcome to your page - let's fill it up. Visit the <a href="/discover">discover</a> feed to browse our carefully curated selection of articles about color, then select "read more" to open the article preview.</h2>
-                <h3>Click the blue bookmark in the top left corner of the article preview to save it to this page, which you can access by clicking "bookmarks" in the navigation bar. Click again to remove the bookmark. Read other people's reactions and share your thoughts by clicking the "comments" button in hte top left of the article preview.</h3>
+                <h3>Click the blue bookmark in the top left corner of the article preview to save it to this page, which you can access by clicking "bookmarks" in the navigation bar. Click again to remove the bookmark. Read other people's reactions and share your thoughts by clicking the "comments" button in the top left of the article preview.</h3>
             </div>
         )
     } else {

@@ -17,7 +17,6 @@ function DeleteCommentModal({ comment, showDeleteModal, setShowDeleteModal }) {
         await dispatch(deleteComment(comment))
         dispatch(readComments())
         history.push(`/articles/${comment.article_id}`)
-
     }
 
     return (

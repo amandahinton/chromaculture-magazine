@@ -6,27 +6,27 @@ import LoginForm from './components/Users/LoginFormModal/LoginForm';
 import RegisterForm from './components/Users/RegisterFormModal/RegisterForm';
 import NavBar from './components/Navigation/NavBar';
 import Footer from './components/Navigation/Footer';
-import Splash from './components/Splash/Splash.js';
+import SplashLoader from './components/Splash/SplashLoader.js';
 import Profile from './components/Profile/Profile';
 import Discover from './components/Discover/Discover.js';
 import ArticlePage from './components/Articles/ArticlePage.js';
 import { authenticate } from './store/session';
-
+// import { getOurArticles } from './store/articles';
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
-  const dispatch = useDispatch();
+    const [loaded, setLoaded] = useState(false);
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    (async() => {
-      await dispatch(authenticate());
-      setLoaded(true);
-    })();
-  }, [dispatch]);
+    useEffect(() => {
+        (async() => {
+            await dispatch(authenticate());
+            setLoaded(true);
+        })();
+    }, [dispatch]);
 
-  if (!loaded) {
-    return null;
-  }
+    if (!loaded) {
+        return null;
+    }
 
   return (
         <BrowserRouter>
@@ -60,14 +60,9 @@ function App() {
                         </div>
                     </ProtectedRoute>
 
-                    {/* <ProtectedRoute path='/users/:userId/articles' exact={true} >
-                        <h1>User Articles</h1>
-                        <h3>articles that a user has created</h3>
-                    </ProtectedRoute> */}
-
                     <Route path='/' exact={true} >
                         <div className="page-container">
-                            <Splash />
+                            <SplashLoader />
                         </div>
                     </Route>
 
