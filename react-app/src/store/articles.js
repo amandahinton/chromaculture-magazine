@@ -1,8 +1,10 @@
 // action types
+
 const VIEW_ALL_ARTICLES = 'article/VIEW_ALL_ARTICLES'
 const VIEW_USER_ARTICLES = 'article/VIEW_USER_ARTICLES'
 const VIEW_OUR_ARTICLES = 'article/VIEW_OUR_ARTICLES'
 const VIEW_ONE_ARTICLE = 'articles/VIEW_ONE_ARTICLE'
+
 
 // action creators
 

@@ -3,7 +3,6 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
-
 def user_exists(form, field):
     # check if user exists
     email = field.data
@@ -48,6 +47,7 @@ def password_confirm(form, field):
     password2 = form.data['confirm_password']
     if password1 != password2:
         raise ValidationError('entries must match')
+
 
 class RegisterForm(FlaskForm):
     username = StringField(

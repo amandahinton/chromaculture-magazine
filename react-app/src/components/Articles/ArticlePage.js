@@ -53,7 +53,6 @@ const ArticlePage = () => {
         )
     }
 
-
     if (article) {
         return (
             <div className="article-page-container">

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import { register, login } from '../../../store/session';
 import "../users.css"
-// import { fetchUsers } from '../../../store/users';
 
 const RegisterForm = () => {
     const [errors, setErrors] = useState([]);
@@ -22,13 +21,6 @@ const RegisterForm = () => {
         dispatch(login("demo@aa.io", "password"));
         history.push("/users/2");
     };
-
-    // const onRegister = async (e) => {
-    //   e.preventDefault();
-    //   const data = await dispatch(Register(username, email, favoriteColor, password, confirmPassword));
-    //   if (data) setErrors(data)
-    //   dispatch(fetchUsers())
-    // };
 
     const onRegister = async (e) => {
         e.preventDefault();
