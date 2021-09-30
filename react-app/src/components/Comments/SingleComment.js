@@ -46,19 +46,15 @@ function SingleComment({comment}) {
 
     useEffect(() => {
         const errors = [];
-        if (updatedComment.length < 1 || updatedComment.length > 500) errors.push("comment must be 1-500 characters in length")
+        let trimContent = updatedComment.trim()
+        if (trimContent.length < 1 || trimContent.length > 500) errors.push("comment must be 1-500 characters in length")
         setValidationErrors(errors)
     }, [updatedComment])
 
     if (userId === comment.user_id) {
         if (showEdit) {
             return (
-                <div className="edit-comment-div">
-
-                    <div className="edit-comment-errors">
-                        {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
-                    </div>
-
+                <div className="edit-comment-container">
                     <form className="edit-comment-form-div" onSubmit={handleSubmitEdit}>
                         <textarea
                             className='comment-field'
@@ -69,7 +65,6 @@ function SingleComment({comment}) {
                             onChange={(e) => setUpdatedComment(e.target.value)}
                         />
                         <div className="edit-comment-buttons-div">
-
                             <button
                                 className='edit-comment-confirm-button'
                                 type="submit"
@@ -85,7 +80,9 @@ function SingleComment({comment}) {
                             </button>
                         </div>
                     </form>
-
+                    <div className="edit-comment-errors">
+                        {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
+                    </div>
                 </div>
             )
         } else {

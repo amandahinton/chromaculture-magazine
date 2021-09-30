@@ -20,7 +20,7 @@ const CommentForm = () => {
     useEffect(() => {
         const errors = [];
         let trimContent = content.trim()
-        if (trimContent.length < 1 || trimContent.length > 500) errors.push("comment must be 1-500 characters in length")
+        if (trimContent.length > 500) errors.push("comment must be 1-500 characters in length")
         setValidationErrors(errors)
     }, [content])
 
@@ -30,6 +30,15 @@ const CommentForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const errors = []
+        let trimContent = content.trim()
+        if (trimContent.length < 1) {
+            errors.push("cannot post a blank comment")
+            setValidationErrors(errors)
+            return
+        }
+
         if (validationErrors > 0) return;
         const payload = {
             userId,
@@ -46,24 +55,29 @@ const CommentForm = () => {
     }
 
     return (
-        <form className="comment-form-div" onSubmit={handleSubmit}>
-            <textarea
-                className='comment-field'
-                placeholder="comment must be 1-500 characters in length"
-                name="content"
-                value={content}
-                rows="3"
-                onChange={(e) => setContent(e.target.value)}
-            />
-            <button
-                className='comment-submit-button'
-                type="submit"
-                disabled={validationErrors.length > 0}
-            >
-                <i className="fas fa-comment comment-submit-icon"></i>
-            </button>
+        <div className="comment-form-container">
+            <form className="comment-form-div" onSubmit={handleSubmit}>
+                <textarea
+                    className='comment-field'
+                    placeholder="What did you think?"
+                    name="content"
+                    value={content}
+                    rows="3"
+                    onChange={(e) => setContent(e.target.value)}
+                />
+                <button
+                    className='comment-submit-button'
+                    type="submit"
+                    disabled={validationErrors.length > 0 || content.length < 1}
+                >
+                    <i className="fas fa-comment comment-submit-icon"></i>
+                </button>
+            </form>
+            <div className="comment-errors">
+                {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
+            </div>
 
-        </form>
+        </div>
     )
 }
 

@@ -121,6 +121,15 @@ a {
 }
 
 
+.fa-bookmark, .fa-arrow-right, .fa-arrow-left, .fa-pencil-alt, .fa-trash-alt, .fa-window-close, .fa-github-square, .fa-id-card, .fa-linkedin, .article-detail-button, .primary-button, .secondary-button, .primary-link-as-button, .secondary-link-as-button, .clickable-div {
+    cursor: pointer;
+}
+
+button[disabled] {
+    cursor: not-allowed;
+}
+
+
 /* FORMS */
 
 .form-div {
@@ -154,4 +163,8 @@ a {
 
 .form-input::placeholder {
     color: var(--coral);
+}
+
+textarea {
+    font-size: 16px;
 }

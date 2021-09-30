@@ -3,15 +3,12 @@ import { Modal } from '../../../context/Modal';
 import ArticleDetail from './ArticleDetail'
 
 
-function ArticleDetailModal({article, showArticleModal, setShowArticleModal}) {
+function ArticleDetailModal({hideButton, article, showArticleModal, setShowArticleModal}) {
 
   return (
     <>
-        <button
-            className="article-detail-button"
-            onClick={() => setShowArticleModal(article)}>
-            read more
-        </button>
+        {!hideButton && <button className="article-detail-button" onClick={() => setShowArticleModal(article)}> read more </button>}
+
         {showArticleModal && showArticleModal?.id === article?.id && (
         <Modal onClose={() => {
             setShowArticleModal(null);

@@ -19,7 +19,7 @@ const RegisterForm = () => {
     const demoLogin = (e) => {
         e.preventDefault();
         dispatch(login("demo@aa.io", "password"));
-        history.push("/users/2");
+        history.push("/discover");
     };
 
     const onRegister = async (e) => {

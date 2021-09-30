@@ -26,7 +26,7 @@ function DeleteCommentModal({ comment, showDeleteModal, setShowDeleteModal }) {
                     <div className="delete-comment-verify-popup">
                         <h3 className="delete-verify-text" >Ready to delete your comment?</h3>
                         <div className="delete-verify-buttons-div">
-                            <button className="secondary-button" onClick={handleDelete}>Confirm</button>
+                            <button className="secondary-button" onClick={handleDelete}>Delete</button>
                             <button className="secondary-button" onClick={() => setShowDeleteModal(false)}>
                                 Cancel
                             </button>
