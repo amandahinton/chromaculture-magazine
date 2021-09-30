@@ -41,7 +41,7 @@ a {
 
 .page-container {
     max-width: 1600px;
-    /* margin: auto; */
+    margin: auto;
     padding: 0 100px;
     display: flex;
     flex-direction: column;

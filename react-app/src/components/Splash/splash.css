@@ -1,35 +1,55 @@
-/* INTRO TEXT */
 
 .splash-container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin: 50px 0 0;
 }
 
-.splash-text {
+/* INTRO TEXT */
+
+.splash-description-div {
+    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 50px;
+    box-sizing: border-box;
+    /* width: 100% */
 }
 
 .splash-title {
     font-family: 'Reem Kufi', sans-serif;
-    font-size: 36px;
+    font-size: 42px;
     font-weight: 600;
     letter-spacing: 1px;
     word-spacing: 8px;
     text-transform: uppercase;
-    margin: 75px 100px 20px;
+    color: var(--yellow);
+    margin-block-start: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .splash-subtitle {
-    margin: 0 100px 30px;
     font-size: 24px;
     letter-spacing: .3px;
     word-spacing: 3px;
+    color: var(--pink);
+    margin-block-start: 0;
 }
+
+.splash-description {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: white
+}
+
 
 .splash-image-grid {
     display: flex;
@@ -43,12 +63,7 @@
     max-height: 300px;
 }
 
-.splash-description {
-    margin-bottom: 30px;
-    font-size: 18px;
-    line-height: 1.5;
-    width: 88%
-}
+
 
 /* FEATURE ARTICLE */
 
@@ -56,7 +71,7 @@
     background-image: url('https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2FxXNUGxecMHnoC5PXKlaxGQ%252F20170913-artsy-harvard-pigment-0030.jpg&width=2000&quality=80');
     background-repeat: no-repeat;
     background-size: cover;
-    width: 40%;
+    width: 800px;
     height: 600px;
 }
 
@@ -65,23 +80,27 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 80%;
-    padding: 0 20px 20px;
-    color: white;
     justify-content: center;
     position: relative;
     top: 60%;
-
-
+    width: 80%;
+    padding: 0 20px 0;
+    color: white;
 }
+
 .main-feature-title {
     margin-left: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
 }
 
 .main-feature-byline {
     margin-left: 10px;
 }
 
+.main-feature-modal-button {
+    margin-top: 10px;
+}
 
 /* TWO ARTICLE HIGHLIGHT */
 
@@ -89,7 +108,6 @@
     display: flex;
     flex-wrap: wrap;
     width: 800px;
-    margin:
 }
 
 .splash-highlight-image {
@@ -97,7 +115,7 @@
     height: 300px;
 }
 
-.splash-article-highlight-one, .splash-article-highlight-two {
+.splash-highlight-one, .splash-highlight-two {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -108,11 +126,11 @@
     color: white;
 }
 
-.splash-article-highlight-one {
+.splash-highlight-one {
     background-color: var(--pink);
 }
 
-.splash-article-highlight-two {
+.splash-highlight-two {
     background-color: var(--coral);
     color: white;
 }
@@ -127,7 +145,6 @@
 .splash-highlight-description {
     font-size: 16px;
     word-spacing: 0.05em;
-
 }
 
 
@@ -137,14 +154,116 @@
 }
 
 
+/* SPLASH CARDS */
+
+.splash-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.splash-cards-duo {
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
 .splash-cards-div {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
-.splash-cards-div li {
-    height: 525px;
-    border: var(--blue) solid 10px;
+.splash-cards-div li, .splash-midcard-image {
+    box-sizing: border-box;
+    height: 480px;
+    width: 400px;
+    /* border: black solid 3px; */
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.splash-cards-div li img {
+    width: 400px;
+}
+
+
+/* RESPONSIVE */
+
+@media all and (max-width: 1815px) {
+    .splash-description-div {
+        width: 800px;
+    }
+
+    .splash-description {
+        font-size: 16px;
+        line-height: 2;
+        word-spacing: 0.05em;
+    }
+
+    .splash-cards-container {
+        max-width: 800px;
+    }
+}
+
+@media all and (max-width: 799px) {
+    .splash-container {
+        /* margin: 0; */
+        width: 400px;
+    }
+
+    .splash-description-div, .splash-main-feature-div {
+        width: 400px;
+    }
+
+    .splash-title {
+        font-size: 30px;
+    }
+
+    .splash-description {
+        font-size: 16px;
+        line-height: 2;
+        word-spacing: 0.05em;
+        margin-bottom: 0;
+    }
+
+    .splash-highlight-div, .splash-cards-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .splash-highlight-image, .splash-midcard-image {
+        display: none;
+    }
+
+}
+
+@media all and (max-width: 400px) {
+
+    .splash-container, .splash-description-div, .splash-main-feature-div, .splash-highlight-one, .splash-highlight-two, .splash-cards-div li, .splash-midcard-image, .splash-cards-div li img  {
+        width: 95vw;
+    }
+
+    .main-feature-byline {
+        display: none;
+    }
+
+    .main-feature-title {
+        margin-bottom: 0;
+    }
+
 }
