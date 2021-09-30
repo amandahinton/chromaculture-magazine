@@ -20,7 +20,7 @@ const CommentForm = () => {
     useEffect(() => {
         const errors = [];
         let trimContent = content.trim()
-        if (trimContent.length < 1 || trimContent.length > 500) errors.push("comment must be 1-500 characters in length")
+        if (trimContent.length > 500) errors.push("comment must be 1-500 characters in length")
         setValidationErrors(errors)
     }, [content])
 
@@ -30,6 +30,15 @@ const CommentForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const errors = []
+        let trimContent = content.trim()
+        if (trimContent.length < 1) {
+            errors.push("cannot post a blank comment")
+            setValidationErrors(errors)
+            return
+        }
+
         if (validationErrors > 0) return;
         const payload = {
             userId,
@@ -59,7 +68,7 @@ const CommentForm = () => {
                 <button
                     className='comment-submit-button'
                     type="submit"
-                    disabled={validationErrors.length > 0}
+                    disabled={validationErrors.length > 0 || content.length < 1}
                 >
                     <i className="fas fa-comment comment-submit-icon"></i>
                 </button>
