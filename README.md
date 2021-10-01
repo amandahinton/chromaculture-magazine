@@ -72,7 +72,7 @@ Deployment and Version Control
 ![](https://github.com/amandahinton/chromaculture/blob/main/design/screenshots/comments.png)
 
 # Code Highlights
-Bookmark thunks and backend api routes
+Bookmark thunks
 ```js
 export const getUserBookmarks = (userId) => async dispatch => {
     const response = await fetch(`/api/users/${userId}/bookmarks`)
@@ -99,6 +99,7 @@ export const postUserBookmark = ({ user_id, article_id }) => async dispatch => {
 }
 ```
 
+Backend api routes
 ``` py
 @user_routes.route('/<int:userId>/bookmarks')
 @login_required
@@ -136,45 +137,42 @@ JSX flow through the components related to articles
 ``` js
 // DISCOVER
 return (
-      <div className="discover-container">
-         <div className="discover-article-intro">
-         <p>Chromaculture is for artists, designers, and those obsessed with all things color! Stop by to see the latest articles we've gathered, and log in to bookmark your favorites and join us in the comments section.</p>
-         </div>
-         <div className="discover-article-div">
-               <h2 className="discover-article-title">browse articles</h2>
-               <ArticleAll articles={articles} />
-         </div>
-      </div>
+    <div className="discover-container">
+        <div className="discover-article-intro">
+        <p>Chromaculture is for artists, designers, and those obsessed with all things color! Stop by to see the latest articles we've gathered, and log in to bookmark your favorites and join us in the comments section.</p>
+        </div>
+        <div className="discover-article-div">
+              <h2 className="discover-article-title">browse articles</h2>
+              <ArticleAll articles={articles} />
+        </div>
+    </div>
 );
 
 // ARTICLE ALL
 return (
-      <ul className="article-grid">
-         {articles && articles?.map((article) => {
-               return <ArticleCard key={article.id} article={article} showArticleModal={showArticleModal} setShowArticleModal={setShowArticleModal} />;
-         })}
-      </ul>
+    <ul className="article-grid">
+        {articles && articles?.map((article) => {
+              return <ArticleCard key={article.id} article={article} showArticleModal={showArticleModal} setShowArticleModal={setShowArticleModal} />;
+        })}
+    </ul>
 )
+
 // ARTICLE CARD
 return (
-        <li className="article-card">
-            <img className="article-card-image" src={article.image_url} alt="article preview" />
-            <h3 className="article-card-title">{article.title}</h3>
-            <p className="article-card-description">{article.description}</p>
-            <div className="article-card-modal-button">
-                <ArticleDetailModal article={article} showArticleModal={showArticleModal} setShowArticleModal={setShowArticleModal} />
-            </div>
-        </li>
+    <li className="article-card">
+        <img className="article-card-image" src={article.image_url} alt="article preview" />
+        <h3 className="article-card-title">{article.title}</h3>
+        <p className="article-card-description">{article.description}</p>
+        <div className="article-card-modal-button">
+            <ArticleDetailModal article={article} showArticleModal={showArticleModal} setShowArticleModal={setShowArticleModal} />
+        </div>
+    </li>
 );
 
  // ARTICLE DETAIL MODAL
 return (
     <>
-        <button
-            className="article-detail-button"
-            onClick={() => setShowArticleModal(article)}>
-            read more
-        </button>
+        {!hideButton && <button className="article-detail-button" onClick={() => setShowArticleModal(article)}> read more </button>}
         {showArticleModal && showArticleModal?.id === article?.id && (
         <Modal onClose={() => {
             setShowArticleModal(null);
@@ -187,53 +185,52 @@ return (
 
 // ARTICLE DETAIL
 if (article) {
-        return (
-            <div className="modal-wrapper-div article-modal-container">
-                <div className="modal-header">
-                    <div className="comments-link-on-modal">
-                        <a href={articlePage} className="secondary-link-as-button">comments <i className="fas fa-comment"></i></a>
-                    </div>
-                    <div className="close-button-div">
-                        <i onClick={closeOverlay} className="fas fa-window-close close-modal-x"></i>
-                    </div>
+    return (
+        <div className="modal-wrapper-div article-modal-container">
+            <div className="modal-header">
+                <div className="comments-link-on-modal">
+                    <a href={articlePage} className="secondary-link-as-button">comments <i className="fas fa-comment"></i></a>
                 </div>
-
-                <ArticleContent article={article} />
+                <div className="close-button-div">
+                    <i onClick={closeOverlay} className="fas fa-window-close close-modal-x"></i>
+                </div>
             </div>
-        );
+
+            <ArticleContent article={article} />
+        </div>
+    );
 } else {
-        return null
+    return null
 }
 
 // ARTICLE CONTENT
 if (article) {
-      return (
-         <div className="article-content-container">
-               <div className="bookmark-div">
-                  {bookmarkIcon}
-               </div>
-               <div className="article-info">
-                  <h1 className="article-title">{article.title}</h1>
-                  <img className="article-image" src={article.image_url} alt="article preview" />
-                  <p className="article-author">{article.author}</p>
-                  <p className="article-source">{article.source}</p>
-                  <p className="article-savers">{(article.saver_list).length} bookmarked</p>
-                  <p className="article-description">{article.description}</p>
+    return (
+        <div className="article-content-container">
+              <div className="bookmark-div">
+                {bookmarkIcon}
+              </div>
+              <div className="article-info">
+                <h1 className="article-title">{article.title}</h1>
+                <img className="article-image" src={article.image_url} alt="article preview" />
+                <p className="article-author">{article.author}</p>
+                <p className="article-source">{article.source}</p>
+                <p className="article-savers">{(article.saver_list).length} bookmarked</p>
+                <p className="article-description">{article.description}</p>
 
-                  <div className="article-quote-div">
-                     <i className="fas fa-quote-left"></i>
-                     <p className="article-quote">{article.quote}</p>
-                     <i className="fas fa-quote-right"></i>
-                  </div>
+                <div className="article-quote-div">
+                    <i className="fas fa-quote-left"></i>
+                    <p className="article-quote">{article.quote}</p>
+                    <i className="fas fa-quote-right"></i>
+                </div>
 
-                  <a href={article.link_url} className="primary-link-as-button" target={"_blank"} rel={"noreferrer"}>full article <i className="fas fa-arrow-right"></i></a>
-               </div>
-
-         </div>
-      );
-   } else {
-      return null
-   }
+                <a href={article.link_url} className="primary-link-as-button" target={"_blank"} rel={"noreferrer"}>full article <i className="fas fa-arrow-right"></i></a>
+              </div>
+        </div>
+    );
+} else {
+  return null
+}
 
 ````
 
