@@ -255,7 +255,7 @@ Install dependencies
    ```bash
    pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
    ```
-* psycopg2-binary MUST remain a dev dependency can't install it on apline-linux (layer in the Dockerfile that will install (not binary) psycopg2
+* psycopg2-binary must remain a dev dependency, can't install it on apline-linux (Dockerfile will install (not binary) psycopg2)
 * After adding new python dependencies to pipfiles, regenerate requirements.txt before deployment
    ```bash
    pipenv lock -r > requirements.txt
