@@ -74,7 +74,10 @@ function SingleComment({comment}) {
                             </button>
                             <button
                                 className='edit-comment-cancel-button'
-                                onClick={() => setShowEdit(false)}
+                                onClick={() => {
+                                    setShowEdit(false)
+                                    setUpdatedComment(comment.content)
+                                }}
                             >
                                 <i className="fas fa-window-close edit-comment-x"></i>
                             </button>
