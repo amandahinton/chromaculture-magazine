@@ -47,7 +47,7 @@ Backend
   * Python
   * Flask
   * SQLAlchemy
-  * Node.js
+  * WTForms
 
 Database
   * PostgreSQL
