@@ -1,7 +1,7 @@
 
 ![](https://github.com/amandahinton/chromaculture/blob/main/react-app/src/images/chromaculture-05.png)
 
-Chromaculture is a digital magazine for about color. The inspiring collection of stories from around the web about palettes, pigments, and color-related projects will take you to surprising places in the spectrum! Chromaculture blends color theory, science, art history, industry information, and pop culture in a way that is modern, informative, provocative, and playful.
+Chromaculture is a digital magazine for color lovers. The inspiring collection of stories from around the web about palettes, pigments, and color-related projects will take you to surprising places in the spectrum! Chromaculture blends color theory, science, art history, industry information, and pop culture in a way that is modern, informative, provocative, and playful.
 
 ### Chromaculture can be found at: https://chromaculture.herokuapp.com/
 
