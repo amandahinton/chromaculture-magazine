@@ -39,7 +39,7 @@ Chromaculture is a digital magazine for about color. The inspiring collection of
 Frontend
   * React
   * Redux
-  * Javascript
+  * JavaScript
   * HTML
   * CSS
 
