@@ -1,9 +1,9 @@
 
-![](https://github.com/amandahinton/chromaculture/blob/main/react-app/src/images/chromaculture-05.png)
+![](https://github.com/amandahinton/chromaculture-v1-deprecated/blob/main/react-app/src/images/chromaculture-05.png)
 
 Chromaculture is a digital magazine for color lovers. The inspiring collection of stories from around the web about palettes, pigments, and color-related projects will take you to surprising places in the spectrum! Chromaculture blends color theory, science, art history, industry information, and pop culture in a way that is modern, informative, provocative, and playful.
 
-### Chromaculture can be found at: https://chromaculture.herokuapp.com/
+### This version (v1) of Chromaculture is no longer live. A new version is in development at github.com/amandahinton/chromaculture
 
 # Features
 * Users
@@ -32,7 +32,7 @@ Chromaculture is a digital magazine for color lovers. The inspiring collection o
 * Search
 * New content
 
-### You can see the feature list, user stories, database schema, and more on the project wiki at: https://github.com/amandahinton/chromaculture/wiki
+### You can see the feature list, user stories, database schema, and more on the project wiki at: https://github.com/amandahinton/chromaculture-v1-deprecated/wiki
 
 # Technologies Used
 
@@ -59,17 +59,17 @@ Deployment and Version Control
 
 
 # Database Structure
-![](https://github.com/amandahinton/chromaculture/blob/main/design/database_schema.png)
+![](https://github.com/amandahinton/chromaculture-v1-deprecated/blob/main/design/database_schema.png)
 
 # Brand and wireframes
-![](https://github.com/amandahinton/chromaculture/blob/main/design/styles.png)
+![](https://github.com/amandahinton/chromaculture-v1-deprecated/blob/main/design/styles.png)
 
 
 # Screenshots
-![](https://github.com/amandahinton/chromaculture/blob/main/design/screenshots/splash.png)
-![](https://github.com/amandahinton/chromaculture/blob/main/design/screenshots/discover.png)
-![](https://github.com/amandahinton/chromaculture/blob/main/design/screenshots/article_preview.png)
-![](https://github.com/amandahinton/chromaculture/blob/main/design/screenshots/comments.png)
+![](https://github.com/amandahinton/chromaculture-v1-deprecated/blob/main/design/screenshots/splash.png)
+![](https://github.com/amandahinton/chromaculture-v1-deprecated/blob/main/design/screenshots/discover.png)
+![](https://github.com/amandahinton/chromaculture-v1-deprecated/blob/main/design/screenshots/article_preview.png)
+![](https://github.com/amandahinton/chromaculture-v1-deprecated/blob/main/design/screenshots/comments.png)
 
 # Code Highlights
 Bookmark thunks
